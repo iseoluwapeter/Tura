@@ -6,6 +6,7 @@ import HomeServices from "../components/HomeServices";
 import HowItWorks from "../components/HowItWorks";
 import WhyTura from "../components/WhyTura";
 import HomeCTA from "../components/HomeCTA";
+import Industries from "../components/Industries";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Problems />
       <HomeServices />
       <HowItWorks />
+      <Industries/>
       <WhyTura />
       <HomeCTA/>
     </div>
