@@ -60,7 +60,7 @@ const Navbar = () => {
 
         {/* Hamburger Icon */}
         <div
-          className="lg:hidden text-3xl text-[#11117C] cursor-pointer"
+          className="lg:hidden text-3xl text-green-600 cursor-pointer"
           onClick={toggleNavbar}
         >
           <RiMenu3Fill />

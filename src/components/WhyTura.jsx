@@ -63,7 +63,7 @@ const WhyTura = () => {
             >
               {/* Icon */}
               <div className="flex justify-center mb-6">
-                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-orange-100 text-orange-600 text-2xl">
+                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-orange-100 text-green-200-600 text-2xl">
                   {features[index].icon}
                 </div>
               </div>
@@ -96,7 +96,7 @@ const WhyTura = () => {
                   key={i}
                   onClick={() => setIndex(i)}
                   className={`w-2.5 h-2.5 rounded-full transition ${
-                    i === index ? "bg-orange-500" : "bg-slate-300"
+                    i === index ? "bg-green-500" : "bg-slate-300"
                   }`}
                 />
               ))}

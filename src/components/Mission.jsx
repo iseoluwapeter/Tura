@@ -70,7 +70,7 @@ const Mission = () => {
             </div>
 
             {/* Floating Stats Card */}
-            <div className="absolute -bottom-8 -left-8 bg-white shadow-xl border border-slate-200 rounded-2xl p-6 w-[260px]">
+            <div className="absolute -bottom-8 left-3 md:-left-8 bg-white shadow-xl border border-slate-200 rounded-2xl p-6 w-65">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 <p className="font-medium text-slate-700">Operational Focus</p>
