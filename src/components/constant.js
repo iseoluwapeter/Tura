@@ -103,3 +103,63 @@ export const NAV_ITEMS = [
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
 ];
+
+
+export const faqs = [
+  {
+    category: "Getting Started",
+    items: [
+      {
+        q: "How do I get started with Tura for my business?",
+        a: "Getting started is simple. Sign up on the Tura platform, provide your business details, and our onboarding team will guide you through the setup process. You can start placing delivery orders within 24 hours of account verification.",
+      },
+      {
+        q: "What types of businesses can use Tura?",
+        a: "Tura is built for any business that moves products — ecommerce brands, retail stores, food businesses, pharmacies, FMCG distributors, fashion labels, and more. If you operate in Lagos and need reliable delivery coordination, Tura is designed for you.",
+      },
+    ],
+  },
+  {
+    category: "Operations",
+    items: [
+      {
+        q: "What areas in Lagos does Tura currently cover?",
+        a: "Tura currently covers all major commercial and residential areas across Lagos — from Lagos Island and Victoria Island to the mainland, Surulere, Yaba, Ikeja, and beyond. Coverage is continuously expanding.",
+      },
+      {
+        q: "How does Tura coordinate deliveries for my business?",
+        a: "Once you submit an order through the dashboard, Tura matches it to the nearest available verified rider using proximity and load-balancing logic. You receive real-time status updates at every stage — pickup, in transit, and delivered.",
+      },
+      {
+        q: "Can I track my deliveries in real time?",
+        a: "Yes. Every order placed through Tura comes with live status notifications. You'll be updated the moment a rider accepts, picks up, and completes your delivery — keeping you and your customers fully informed.",
+      },
+    ],
+  },
+  {
+    category: "Pricing & Payments",
+    items: [
+      {
+        q: "How is pricing structured for delivery orders?",
+        a: "Pricing is calculated based on distance, package size, and delivery priority. Businesses get access to competitive rates with transparent breakdowns — no hidden charges. Volume-based pricing is available for high-frequency businesses.",
+      },
+      {
+        q: "Is there a minimum number of deliveries required?",
+        a: "No minimum is required to get started. Whether you're running 5 deliveries a week or 500 a day, Tura scales to your volume without locking you into contracts.",
+      },
+    ],
+  },
+  {
+    category: "Support",
+    items: [
+      {
+        q: "What happens if a delivery is delayed or goes wrong?",
+        a: "Tura has a dedicated support team to handle disputes and delivery issues. Every order is traceable and logged, making resolution fast and transparent. Businesses can flag issues directly from the dashboard.",
+      },
+      {
+        q: "How do I contact Tura support?",
+        a: "You can reach the Tura support team via WhatsApp, email, or the in-app help centre. Support is available during business hours with a target response time of under 30 minutes for active delivery issues.",
+      },
+    ],
+  },
+];

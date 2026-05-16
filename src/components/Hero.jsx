@@ -183,7 +183,7 @@ export default function Hero() {
                   className="text-[11px] font-semibold tracking-[0.1em] uppercase text-emerald-700"
                   style={{ fontFamily: "'DM Mono', monospace" }}
                 >
-                  3PL operations · Lagos
+                  · Third party logistics
                 </span>
               </div>
 
@@ -262,7 +262,7 @@ export default function Hero() {
                     />
                     <path d="M5.5 5.5l4 2-4 2V5.5z" fill="white" />
                   </svg>
-                  Contact 
+                  Contact
                 </a>
               </div>
 
@@ -370,7 +370,7 @@ export default function Hero() {
                       className="text-[11px] font-semibold text-white"
                       style={{ fontFamily: "'DM Mono', monospace" }}
                     >
-                      Victoria Island · Lekki · Lagos Island
+                      Third party logistics
                     </p>
                   </div>
                 </div>

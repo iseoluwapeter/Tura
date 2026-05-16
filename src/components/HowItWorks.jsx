@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { MissionImage } from "../assets";
 
 const steps = [
   {
     number: "01",
-    title: "Submit Orders",
+    title: "Submit Manifests",
     description:
-      "Businesses log delivery requests through the Tura dashboard — specifying pickup, destination, and priority.",
+      "Businesses log delivery requests through the Tura dashboard specifying pickup, destination, and priority.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -112,7 +113,7 @@ const StepCard = ({ step, index }) => {
     >
       {/* Connector line */}
       {index < steps.length - 1 && (
-        <div className="absolute left-6.75 top-14 w-px h-[calc(100%+2rem)] bg-gradient-to-b from-slate-200 to-transparent" />
+        <div className="absolute left-6.75 top-14 w-px h-[calc(100%+2rem)] bg-linear-to-b from-slate-200 to-transparent" />
       )}
 
       {/* Step number bubble */}
@@ -129,15 +130,15 @@ const StepCard = ({ step, index }) => {
       {/* Content */}
       <div className="pb-10">
         <div className="flex items-center gap-3 mb-1.5">
-          <span className="text-[11px] font-semibold tracking-[0.15em] text-indigo-400 uppercase">
+          <span className="text-[11px] font-semibold tracking-[0.15em] text-green-700 uppercase">
             {step.number}
           </span>
         </div>
-        <h3 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-indigo-700 transition-colors duration-200">
+        <h3 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-green-700 transition-colors duration-200">
           {step.title}
         </h3>
         <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
-          {step.description}
+          {step.description}2
         </p>
       </div>
     </motion.div>
@@ -172,7 +173,7 @@ const HowItWorks = () => {
       />
 
       {/* Ambient glow */}
-      <div className="pointer-events-none absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-indigo-50 blur-[100px] opacity-60" />
+      <div className="pointer-events-none absolute -top-40 -right-40 w-150 h-150 rounded-full bg-indigo-50 blur-[100px] opacity-60" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
@@ -240,7 +241,7 @@ const HowItWorks = () => {
               <motion.button
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className="flex-shrink-0 bg-white hover:bg-green-400 text-green-900 text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
+                className="shrink-0 bg-white hover:bg-green-400 text-green-900 text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
               >
                 Get started →
               </motion.button>
@@ -257,12 +258,12 @@ const HowItWorks = () => {
               className="relative rounded-3xl overflow-hidden"
             >
               <img
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80"
+                src={MissionImage}
                 alt="Logistics operations in Lagos"
-                className="w-full h-[520px] object-cover"
+                className="w-full h-130 object-cover"
               />
               {/* Image overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent" />
             </motion.div>
 
             {/* Floating stat cards */}
@@ -328,16 +329,16 @@ const HowItWorks = () => {
               </div>
               <div>
                 <p className="text-xs text-slate-400 leading-none mb-1">
-                  Avg. delivery time
+                  Always on time
                 </p>
-                <p className="text-slate-900 font-bold text-lg leading-none">
+                {/* <p className="text-slate-900 font-bold text-lg leading-none">
                   47 min
-                </p>
+                </p> */}
               </div>
             </motion.div>
 
             {/* Active orders pill */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={imageInView ? { opacity: 1, y: 0 } : {}}
               transition={{
@@ -354,7 +355,7 @@ const HowItWorks = () => {
               <span className="text-white text-xs font-medium">
                 240+ active orders right now
               </span>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </div>

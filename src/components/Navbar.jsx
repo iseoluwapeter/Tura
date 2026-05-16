@@ -6,10 +6,10 @@ import { TuraLogo } from "../assets";
 
 const mobileMenu = [
   { id: 1, title: "Services", link: "/services" },
-  { id: 2, title: "Solutions", link: "/solutions" },
+  // { id: 2, title: "Solutions", link: "/solutions" },
   { id: 3, title: "Pricing", link: "/pricing" },
-  { id: 4, title: "About", link: "/about" },
-  { id: 5, title: "Give", link: "/give" },
+  { id: 4, title: "Company", link: "/company" },
+  { id: 5, title: "Contact", link: "/contact" },
 ];
 
 const Navbar = () => {
@@ -36,8 +36,10 @@ const Navbar = () => {
         }`}
       >
         {/* Brand logo */}
-        <div className="flex items-center space-x-2 text-[#11117C]">
-          <img src={TuraLogo} alt="Tura" className="w-37.5 md:w-55" />
+        <div className="flex items-center space-x-2 text-green-600">
+          <NavLink to="/">
+            <img src={TuraLogo} alt="Tura" className="w-20 md:w-40" />
+          </NavLink>
         </div>
 
         {/* Desktop nav links */}
@@ -48,7 +50,7 @@ const Navbar = () => {
                 to={menu.link}
                 className={({ isActive }) =>
                   isActive
-                    ? "border-b-2 border-[#11117C] font-semibold"
+                    ? "border-b-2 border-green-650 font-semibold"
                     : "transition-all"
                 }
               >

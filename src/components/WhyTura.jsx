@@ -186,11 +186,11 @@ const WhyTura = () => {
           className="flex flex-col items-center text-center mb-20"
         >
           <div className="flex items-center gap-2.5 mb-5">
-            <div className="h-px w-8 bg-indigo-400" />
-            <span className="text-[11px] font-semibold tracking-[0.2em] text-indigo-500 uppercase">
+            <div className="h-px w-8 bg-green-600" />
+            <span className="text-[11px] font-semibold tracking-[0.2em] text-green-700 uppercase">
               Why Tura
             </span>
-            <div className="h-px w-8 bg-indigo-400" />
+            <div className="h-px w-8 bg-green-400" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
             Why businesses choose Tura
@@ -220,7 +220,7 @@ const WhyTura = () => {
                 {/* LEFT — Text */}
                 <div>
                   {/* Icon */}
-                  <div className="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-8">
+                  <div className="w-16 h-16 rounded-2xl bg-indigo-50 text-green-600 flex items-center justify-center mb-8">
                     {feature.icon}
                   </div>
 
@@ -252,7 +252,7 @@ const WhyTura = () => {
                         }}
                       >
                         {i === index && (
-                          <span className="absolute inset-0 rounded-full bg-indigo-500" />
+                          <span className="absolute inset-0 rounded-full bg-green-600" />
                         )}
                       </button>
                     ))}
@@ -277,7 +277,7 @@ const WhyTura = () => {
                           cy="100"
                           r="96"
                           fill="none"
-                          stroke="#6366f1"
+                          stroke="#169146"
                           strokeWidth="1.5"
                           strokeDasharray="6 6"
                         />
@@ -302,7 +302,7 @@ const WhyTura = () => {
                           cy="100"
                           r="88"
                           fill="none"
-                          stroke="#6366f1"
+                          stroke="#169146"
                           strokeWidth="2.5"
                           strokeLinecap="round"
                           strokeDasharray={`${2 * Math.PI * 88}`}
