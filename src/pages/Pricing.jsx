@@ -5,70 +5,94 @@ const PACKAGES = [
     id: "spark",
     name: "Spark",
     persona: "For solo-run shops testing dispatch",
-    price: 18000,
+    price: 45000,
     highlight: false,
     badge: null,
     cta: "Get started",
     href: "/onboard",
     features: [
-      "Manifest creation & tracking",
-      "Up to 5 drops per run",
-      "Standard operator pool",
-      "Push notification updates",
-      "Basic proof of delivery",
+      "15 deliveries usable across any 45 consecutive days",
+      "Class M goods handling only",
+      "Single pickup address within operating zone",
+      "Dedicated Tura operations contact via WhatsApp & phone",
+      "One-time rollover of unused drops into the next Spark cycle",
     ],
   },
   {
     id: "starter",
     name: "Starter",
-    persona: "For small pharmacies & boutiques",
-    price: 35000,
+    persona: "For businesses with recurring weekly or daily deliveries",
+    price: 180000,
     highlight: false,
     badge: null,
     cta: "Get started",
     href: "/onboard",
     features: [
-      "Everything in Spark",
-      "Up to 10 drops per run",
-      "Verified operator tier access",
-      "WhatsApp delivery alerts",
-      "Timestamped proof of delivery",
+      "Up to 100 deliveries per calendar month",
+      "Class M goods handling only",
+      "Single pickup location within one contiguous zone",
+      "Dedicated Tura operations contact",
+      "Daily manifest processing & dispatch coordination",
+      "End-of-day completion summary",
     ],
   },
   {
     id: "essential",
     name: "Essential",
-    persona: "For growing supermarkets & retailers",
-    price: 65000,
+    persona: "For brands with high-volume daily dispatch needs",
+    price: 320000,
     highlight: true,
     badge: "Most popular",
     cta: "Get started",
     href: "/onboard",
     features: [
-      "Everything in Starter",
-      "Up to 20 drops per run",
-      "Priority operator assignment",
-      "Multi-channel alerts (Push · WhatsApp · SMS)",
-      "Same-day SLA guarantee",
-      "WHT-compliant payout records",
+      "Up to 250 deliveries per calendar month",
+      "Class M goods handling only",
+      "Multiple pickup points within operating zone",
+      "Dedicated Tura operations contact",
+      "Daily manifest processing & dispatch coordination",
+      "End-of-day completion reporting",
+      "Monthly written performance summary",
     ],
   },
   {
     id: "growth",
     name: "Growth",
-    persona: "For high-volume B2B operations",
-    price: 110000,
+    persona:
+      "For expanding SMEs with structured daily logistics operations across multiple Lagos zones",
+    price: 580000,
     highlight: false,
     badge: null,
     cta: "Talk to us",
     href: "/contact",
     features: [
-      "Everything in Essential",
-      "Unlimited drops per run",
-      "Dedicated operator squad",
-      "Account manager support",
-      "Custom SLA & invoicing",
-      "API access (coming soon)",
+      "Up to 500 deliveries per calendar month",
+      "Class M standard delivery support",
+      "Class V delivery available at scoped van operator rates",
+      "Expanded coverage across in multiple zones",
+      "Dedicated Tura operations contact",
+      "Daily manifest processing & dispatch coordination",
+      "End-of-day completion reporting",
+      "Weekly written performance reports",
+    ],
+  },
+  {
+    id: "scale",
+    name: "Scale",
+    persona: "For brands with high-volume daily dispatch needs",
+    price: 950000,
+    highlight: false,
+    badge: "",
+    cta: "Get started",
+    href: "/onboard",
+    features: [
+      "Custom fleet operations from ₦950,000 per month",
+      "Dedicated multi-vehicle logistics coordination",
+      "Class M standard support with scoped Class V vehicle operations",
+      "Nightly route sheet planning for all active vehicles",
+      "Real-time run tracking with proactive delay & exception updates",
+      "Weekly performance reporting & monthly commercial reviews",
+      "Dedicated operations contact with direct phone access",
     ],
   },
 ];
@@ -102,161 +126,76 @@ const Pricing = () => {
         />
 
         {/* Pricing cards */}
-        <section
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-            gap: 22,
-            alignItems: "start",
-          }}
-        >
-          {PACKAGES.map((pkg) => (
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start max-w-5xl mx-auto px-4">
+          {PACKAGES.map((pkg, i) => (
             <div
               key={pkg.id}
-              style={{
-                position: "relative",
-                background: pkg.highlight ? "#f0fdf4" : "#ffffff",
-                border: pkg.highlight
-                  ? "2px solid #059669"
-                  : "1.5px solid #e5e7eb",
-                borderRadius: 24,
-                padding: "30px 24px 24px",
-                boxShadow: pkg.highlight
-                  ? "0 10px 30px rgba(5,150,105,0.12)"
-                  : "0 2px 10px rgba(0,0,0,0.04)",
-              }}
+              className={`
+        relative rounded-3xl p-8 pb-6
+        ${i === 3 ? "sm:col-start-1 lg:col-start-1 lg:translate-x-1/2" : ""}
+        ${i === 4 ? "sm:col-start-2 lg:col-start-2 lg:translate-x-1/2" : ""}
+        ${
+          pkg.highlight
+            ? "bg-green-50 border-2 border-emerald-600 shadow-[0_10px_30px_rgba(5,150,105,0.12)]"
+            : "bg-white border border-gray-200 shadow-sm"
+        }
+      `}
             >
+              {/* Badge */}
               {pkg.badge && (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: -12,
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    background: "#059669",
-                    color: "#fff",
-                    padding: "5px 14px",
-                    borderRadius: 999,
-                    fontSize: 10,
-                    fontWeight: 700,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    whiteSpace: "nowrap",
-                  }}
-                >
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-[10px] font-bold tracking-widest uppercase px-4 py-1 rounded-full whitespace-nowrap">
                   {pkg.badge}
                 </div>
               )}
 
+              {/* Plan name */}
               <p
-                style={{
-                  fontSize: 10.5,
-                  fontWeight: 700,
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  color: pkg.highlight ? "#059669" : "#9ca3af",
-                  marginBottom: 8,
-                  fontFamily: "monospace",
-                }}
+                className={`font-mono text-[10.5px] font-bold tracking-[0.12em] uppercase mb-2 ${
+                  pkg.highlight ? "text-emerald-600" : "text-gray-400"
+                }`}
               >
                 {pkg.name}
               </p>
 
-              <p
-                style={{
-                  fontSize: 13,
-                  lineHeight: 1.5,
-                  color: "#6b7280",
-                  marginBottom: 20,
-                }}
-              >
+              {/* Persona */}
+              <p className="text-[13px] leading-relaxed text-gray-500 mb-5">
                 {pkg.persona}
               </p>
 
-              <div style={{ marginBottom: 22 }}>
-                <span
-                  style={{
-                    fontFamily: "Georgia, serif",
-                    fontSize: 38,
-                    fontWeight: 700,
-                    letterSpacing: "-0.03em",
-                    color: "#111827",
-                  }}
-                >
+              {/* Price */}
+              <div className="mb-6">
+                <span className="font-serif text-[38px] font-bold tracking-tight text-gray-900">
                   {formatPrice(pkg.price)}
                 </span>
-
-                <span
-                  style={{
-                    marginLeft: 5,
-                    fontSize: 13,
-                    color: "#9ca3af",
-                  }}
-                >
-                  / month
-                </span>
+                <span className="ml-1 text-[13px] text-gray-400">/ month</span>
               </div>
 
+              {/* Features */}
               <div
-                style={{
-                  borderTop: "1px solid",
-                  borderColor: pkg.highlight ? "#bbf7d0" : "#f3f4f6",
-                  paddingTop: 18,
-                  marginBottom: 24,
-                }}
+                className={`border-t pt-4 mb-6 ${
+                  pkg.highlight ? "border-green-200" : "border-gray-100"
+                }`}
               >
                 {pkg.features.map((feature) => (
-                  <div
-                    key={feature}
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: 10,
-                      marginBottom: 12,
-                    }}
-                  >
-                    <span
-                      style={{
-                        color: "#059669",
-                        fontWeight: 700,
-                        fontSize: 13,
-                        marginTop: 1,
-                        flexShrink: 0,
-                      }}
-                    >
+                  <div key={feature} className="flex items-start gap-2.5 mb-3">
+                    <span className="text-emerald-600 font-bold text-[13px] mt-0.5 shrink-0">
                       ✓
                     </span>
-
-                    <span
-                      style={{
-                        fontSize: 13.5,
-                        color: "#374151",
-                        lineHeight: 1.5,
-                      }}
-                    >
+                    <span className="text-[13.5px] text-gray-700 leading-relaxed">
                       {feature}
                     </span>
                   </div>
                 ))}
               </div>
 
+              {/* CTA */}
               <a
                 href={pkg.href}
-                style={{
-                  display: "block",
-                  textAlign: "center",
-                  textDecoration: "none",
-                  padding: "12px 16px",
-                  borderRadius: 14,
-                  fontSize: 14,
-                  fontWeight: 600,
-                  background: pkg.highlight ? "#059669" : "transparent",
-                  color: pkg.highlight ? "#ffffff" : "#059669",
-                  border: pkg.highlight ? "none" : "1.5px solid #059669",
-                  boxShadow: pkg.highlight
-                    ? "0 6px 18px rgba(5,150,105,0.22)"
-                    : "none",
-                }}
+                className={`block text-center no-underline px-4 py-3 rounded-2xl text-sm font-semibold transition-opacity hover:opacity-90 ${
+                  pkg.highlight
+                    ? "bg-emerald-600 text-white shadow-[0_6px_18px_rgba(5,150,105,0.22)]"
+                    : "bg-transparent text-emerald-600 border border-emerald-600"
+                }`}
               >
                 {pkg.cta}
               </a>
