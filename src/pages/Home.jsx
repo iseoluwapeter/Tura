@@ -16,7 +16,7 @@ const Home = () => {
       <Problems />
       <HomeServices />
       <HowItWorks />
-      <Industries/>
+      <Industries />
       <WhyTura />
       <HomeCTA/>
     </div>

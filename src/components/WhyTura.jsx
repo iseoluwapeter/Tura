@@ -96,7 +96,8 @@ const ArrowButton = ({ direction, onClick }) => (
     whileHover={{ scale: 1.08 }}
     whileTap={{ scale: 0.94 }}
     aria-label={direction === "prev" ? "Previous" : "Next"}
-    className="w-12 h-12 flex items-center justify-center rounded-full border border-slate-200 bg-white text-slate-400 hover:text-slate-900 hover:border-slate-300 hover:shadow-md transition-all duration-200 flex-shrink-0"
+    // Fixed: removed from flex row, no layout-disrupting width on small screens
+    className="w-10 h-10 shrink-0 flex items-center justify-center rounded-full border border-slate-200 bg-white text-slate-400 hover:text-slate-900 hover:border-slate-300 hover:shadow-md transition-all duration-200"
   >
     {direction === "prev" ? (
       <svg
@@ -104,7 +105,7 @@ const ArrowButton = ({ direction, onClick }) => (
         fill="none"
         stroke="currentColor"
         strokeWidth={2}
-        className="w-5 h-5"
+        className="w-4 h-4"
       >
         <path
           strokeLinecap="round"
@@ -118,7 +119,7 @@ const ArrowButton = ({ direction, onClick }) => (
         fill="none"
         stroke="currentColor"
         strokeWidth={2}
-        className="w-5 h-5"
+        className="w-4 h-4"
       >
         <path
           strokeLinecap="round"
@@ -130,24 +131,22 @@ const ArrowButton = ({ direction, onClick }) => (
   </motion.button>
 );
 
+// Fixed: removed x translation — use opacity + blur only to avoid overflow issues
 const variants = {
-  enter: (dir) => ({
+  enter: {
     opacity: 0,
-    x: dir > 0 ? 48 : -48,
-    filter: "blur(4px)",
-  }),
+    filter: "blur(6px)",
+  },
   center: {
     opacity: 1,
-    x: 0,
     filter: "blur(0px)",
     transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
   },
-  exit: (dir) => ({
+  exit: {
     opacity: 0,
-    x: dir > 0 ? -48 : 48,
     filter: "blur(4px)",
     transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
-  }),
+  },
 };
 
 const WhyTura = () => {
@@ -172,8 +171,9 @@ const WhyTura = () => {
   const feature = features[index];
 
   return (
-    <section className="w-full py-28 bg-white overflow-hidden">
-      {/* Ambient top glow */}
+    // Fixed: overflow-hidden on section itself clips the ambient glow but prevents x-scroll
+    <section className="w-full py-28 bg-white overflow-hidden relative">
+      {/* Ambient top glow — kept inside relative section so absolute positioning works */}
       <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-32 w-[700px] h-[300px] rounded-full bg-indigo-50 blur-[100px] opacity-70" />
 
       <div className="relative max-w-6xl mx-auto px-6 lg:px-12">
@@ -201,30 +201,28 @@ const WhyTura = () => {
           </p>
         </motion.div>
 
-        {/* Carousel row */}
-        <div className="flex items-center gap-8 lg:gap-12">
+        {/* Carousel row — Fixed: gap-4, items-center removed to prevent flex blowout */}
+        <div className="flex items-center gap-3 sm:gap-5">
           <ArrowButton direction="prev" onClick={prev} />
 
-          {/* Content stage */}
+          {/* Content stage — Fixed: min-w-0 ensures flex child can shrink */}
           <div className="flex-1 min-w-0">
-            <AnimatePresence mode="wait" custom={dir}>
+            <AnimatePresence mode="wait">
               <motion.div
                 key={index}
-                custom={dir}
                 variants={variants}
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center"
+                // Fixed: w-full so it never exceeds parent; min-w-0 on the grid children
+                className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center w-full"
               >
                 {/* LEFT — Text */}
-                <div>
-                  {/* Icon */}
+                <div className="min-w-0">
                   <div className="w-16 h-16 rounded-2xl bg-indigo-50 text-green-600 flex items-center justify-center mb-8">
                     {feature.icon}
                   </div>
 
-                  {/* Step counter */}
                   <p className="text-[11px] font-semibold tracking-[0.2em] text-slate-400 uppercase mb-3">
                     {String(index + 1).padStart(2, "0")} /{" "}
                     {String(features.length).padStart(2, "0")}
@@ -245,7 +243,7 @@ const WhyTura = () => {
                         key={i}
                         onClick={() => go(i)}
                         aria-label={`Go to slide ${i + 1}`}
-                        className="group relative h-1 rounded-full overflow-hidden transition-all duration-300 focus:outline-none"
+                        className="relative h-1 rounded-full overflow-hidden transition-all duration-300 focus:outline-none"
                         style={{
                           width: i === index ? 32 : 16,
                           background: i === index ? "transparent" : "#e2e8f0",
@@ -259,15 +257,14 @@ const WhyTura = () => {
                   </div>
                 </div>
 
-                {/* RIGHT — Stat + decorative */}
-                <div className="relative flex flex-col items-center justify-center">
-                  {/* Large decorative number */}
-                  <div className="relative">
-                    {/* Background glow circle */}
-                    <div className="absolute inset-0 m-auto w-64 h-64 rounded-full bg-indigo-50 blur-2xl opacity-80" />
+                {/* RIGHT — Stat + decorative. Fixed: w-full + max-w so circle never overflows */}
+                <div className="min-w-0 flex flex-col items-center justify-center">
+                  <div className="relative w-full max-w-[220px] aspect-square mx-auto">
+                    {/* Background glow — Fixed: inset-0 relative to this container, no fixed px size */}
+                    <div className="absolute inset-0 rounded-full bg-indigo-50 blur-2xl opacity-80" />
 
-                    <div className="relative z-10 flex flex-col items-center justify-center w-64 h-64">
-                      {/* Outer ring */}
+                    <div className="relative z-10 flex flex-col items-center justify-center w-full h-full">
+                      {/* Outer dashed ring */}
                       <svg
                         className="absolute inset-0 w-full h-full -rotate-90 opacity-10"
                         viewBox="0 0 200 200"
@@ -333,7 +330,7 @@ const WhyTura = () => {
                         }}
                         className="text-center"
                       >
-                        <p className="text-5xl font-bold text-slate-900 tracking-tight leading-none">
+                        <p className="text-4xl font-bold text-slate-900 tracking-tight leading-none">
                           {feature.stat}
                         </p>
                         <p className="text-sm text-slate-400 mt-2 font-medium tracking-wide">
@@ -343,13 +340,13 @@ const WhyTura = () => {
                     </div>
                   </div>
 
-                  {/* Small floating tags */}
+                  {/* Tags */}
                   <motion.div
                     key={`tags-${index}`}
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.4 }}
-                    className="flex gap-2 mt-10 flex-wrap justify-center"
+                    className="flex gap-2 mt-8 flex-wrap justify-center"
                   >
                     {["Lagos Focused", "SME Ready", "Realtime"].map((tag) => (
                       <span

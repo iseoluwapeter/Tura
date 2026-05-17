@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 
-const HeroSection = () => {
+const ServiceHero = () => {
   return (
     <section className="relative min-h-screen bg-slate-950 overflow-hidden flex items-center">
       {/* Background image */}
@@ -62,4 +62,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default ServiceHero;
