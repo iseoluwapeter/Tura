@@ -26,6 +26,8 @@ export default function HeroSection({
           alignItems: "center",
           gap: 8,
           padding: "6px 14px",
+          margin: "46px 0px",
+
           borderRadius: 999,
           background: "#f0fdf4",
           border: "1px solid #bbf7d0",
@@ -59,7 +61,8 @@ export default function HeroSection({
       {/* Title */}
       <h1
         style={{
-          fontFamily: "Georgia, serif",
+          fontFamily: "Poppins",
+          fontWeight: 500,
           fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
           lineHeight: 1.08,
           letterSpacing: "-0.03em",
@@ -84,6 +87,8 @@ export default function HeroSection({
       <p
         style={{
           maxWidth: 580,
+          fontFamily: "Poppins",
+
           margin: "0 auto",
           fontSize: 16,
           lineHeight: 1.8,

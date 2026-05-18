@@ -1,10 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-/* ─── Inline SVG Gaussian noise filter ─────────────────────────────────────
-   Rendered into a <defs> block and referenced as a CSS filter URI.
-   baseFrequency controls grain density; numOctaves adds complexity.          */
-const NoiseSVG = () => (
+/* ─── SVG Noise Filter (shared, reusable) ─── */
+export const NoiseSVG = () => (
   <svg width="0" height="0" className="absolute">
     <defs>
       <filter
@@ -20,27 +19,16 @@ const NoiseSVG = () => (
           baseFrequency="0.68"
           numOctaves="4"
           stitchTiles="stitch"
-          result="noiseOut"
         />
-        <feColorMatrix
-          type="saturate"
-          values="0"
-          in="noiseOut"
-          result="grayNoise"
-        />
-        <feBlend
-          in="SourceGraphic"
-          in2="grayNoise"
-          mode="overlay"
-          result="blended"
-        />
-        <feComposite in="blended" in2="SourceGraphic" operator="in" />
+        <feColorMatrix type="saturate" values="0" />
+        <feBlend in="SourceGraphic" mode="overlay" />
+        <feComposite in2="SourceGraphic" operator="in" />
       </filter>
     </defs>
   </svg>
 );
 
-/* ─── Animation variants ─────────────────────────────────────────────────── */
+/* ─── Animations ─── */
 const sectionVariants = {
   hidden: { opacity: 0, y: 48 },
   visible: {
@@ -68,13 +56,22 @@ const buttonHover = {
   scale: 1.04,
   transition: { type: "spring", stiffness: 340, damping: 18 },
 };
+
 const buttonTap = { scale: 0.97 };
 
-/* ─── Component ─────────────────────────────────────────────────────────── */
-const HomeCTA = () => {
+/* ─── Reusable CTA Component ─── */
+const HomeCTA = ({
+  badge,
+  title,
+  highlight,
+  description,
+  primaryCta,
+  primaryLabel,
+  secondaryLabel,
+  secondaryCta,
+}) => {
   return (
-    <section className="px-6 md:px-10 py-14" >
-      {/* Hidden SVG noise filter definition */}
+    <section className="px-6 md:px-10 py-14">
       <NoiseSVG />
 
       <motion.div
@@ -84,72 +81,29 @@ const HomeCTA = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
         style={{
-          /* Rich forest-green mesh gradient as the base */
           background:
             "radial-gradient(ellipse 80% 60% at 20% 40%, #1a6b2f 0%, transparent 70%)," +
             "radial-gradient(ellipse 60% 80% at 80% 70%, #0d3d1a 0%, transparent 65%)," +
             "linear-gradient(145deg, #145220 0%, #0d3d1a 50%, #07240f 100%)",
-          /* Apply the Gaussian noise as a CSS filter */
           filter: "url(#cta-noise)",
         }}
       >
-        {/* ── Noise + gradient layer (opacity controls grain strength) ── */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            opacity: 0.55,
-            mixBlendMode: "soft-light",
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-            backgroundSize: "200px 200px",
-          }}
-        />
-
-        {/* ── Decorative light orbs ── */}
-        <motion.div
-          className="absolute -top-20 -left-20 w-72 h-72 rounded-full pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(74,200,100,0.18) 0%, transparent 70%)",
-          }}
-          animate={{ scale: [1, 1.12, 1], opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute -bottom-16 -right-16 w-80 h-80 rounded-full pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(30,160,65,0.14) 0%, transparent 70%)",
-          }}
-          animate={{ scale: [1, 1.08, 1], opacity: [0.5, 0.9, 0.5] }}
-          transition={{
-            duration: 9,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-        />
-
-        {/* ── Thin top highlight line ── */}
-        <div
-          className="absolute top-0 left-12 right-12 h-px pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)",
-          }}
-        />
-
-        {/* ── Content ── */}
         <motion.div
           className="relative z-10 max-w-3xl mx-auto text-center px-8 py-20 md:py-24"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          /* Remove the noise filter from text so it stays crisp */
-          style={{ filter: "none" }}
+          viewport={{ once: true }}
         >
-          
+          {/* Badge */}
+          {badge && (
+            <motion.span
+              variants={fadeUp}
+              className="text-[11px] font-semibold tracking-widest uppercase text-emerald-300 mb-4 inline-block"
+            >
+              {badge}
+            </motion.span>
+          )}
 
           {/* Headline */}
           <motion.h2
@@ -161,20 +115,21 @@ const HomeCTA = () => {
               fontFamily: "'DM Serif Display', Georgia, serif",
             }}
           >
-            Ready to streamline{" "}
-            <span style={{ fontStyle: "italic", color: "#6de88a" }}>
-              your deliveries?
-            </span>
+            {title}{" "}
+            {highlight && (
+              <span style={{ fontStyle: "italic", color: "#6de88a" }}>
+                {highlight}
+              </span>
+            )}
           </motion.h2>
 
-          {/* Body */}
+          {/* Description */}
           <motion.p
             variants={fadeUp}
             className="text-base md:text-lg leading-relaxed mb-10 max-w-xl mx-auto"
             style={{ color: "rgba(200,235,205,0.8)" }}
           >
-            Partner with Tura and build a more reliable logistics operation for
-            your business structured, scalable, and built for Lagos.
+            {description}
           </motion.p>
 
           {/* Buttons */}
@@ -182,60 +137,41 @@ const HomeCTA = () => {
             variants={fadeUp}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            {/* Primary */}
-            <motion.button
-              whileHover={buttonHover}
-              whileTap={buttonTap}
-              className="relative overflow-hidden rounded-xl px-8 py-3.5 text-sm font-bold shadow-lg"
-              style={{
-                background: "#f0faf2",
-                color: "#0d3d1a",
-                letterSpacing: "0.02em",
-              }}
-            >
-              <motion.span
-                className="absolute inset-0 rounded-xl"
-                style={{ background: "rgba(45,180,80,0.15)" }}
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.25 }}
-              />
-              <span className="relative">Get Started</span>
-            </motion.button>
+            {primaryCta && (
+              <Link to={primaryLabel}>
+                <motion.button
+                  whileHover={buttonHover}
+                  whileTap={buttonTap}
+                  className="px-8 py-3.5 rounded-xl text-sm font-bold"
+                  style={{
+                    background: "#f0faf2",
+                    color: "#0d3d1a",
+                  }}
+                >
+                  {primaryCta}
+                </motion.button>
+              </Link>
+            )}
 
-            {/* Secondary */}
-            <motion.button
-              whileHover={buttonHover}
-              whileTap={buttonTap}
-              className="relative overflow-hidden rounded-xl px-8 py-3.5 text-sm font-bold"
-              style={{
-                border: "1.5px solid rgba(255,255,255,0.28)",
-                color: "#f0faf2",
-                background: "rgba(255,255,255,0.06)",
-                backdropFilter: "blur(6px)",
-                letterSpacing: "0.02em",
-              }}
-            >
-              <motion.span
-                className="absolute inset-0 rounded-xl"
-                style={{ background: "rgba(255,255,255,0.08)" }}
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.25 }}
-              />
-              <span className="relative">Contact Us</span>
-            </motion.button>
+            {secondaryCta && (
+              <Link to={secondaryLabel}>
+                <motion.button
+                  whileHover={buttonHover}
+                  whileTap={buttonTap}
+                  className="px-8 py-3.5 rounded-xl text-sm font-bold"
+                  style={{
+                    border: "1.5px solid rgba(255,255,255,0.28)",
+                    color: "#f0faf2",
+                    background: "rgba(255,255,255,0.06)",
+                    backdropFilter: "blur(6px)",
+                  }}
+                >
+                  {secondaryCta}
+                </motion.button>
+              </Link>
+            )}
           </motion.div>
         </motion.div>
-
-        {/* ── Bottom fade edge ── */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(7,36,15,0.5), transparent)",
-          }}
-        />
       </motion.div>
     </section>
   );

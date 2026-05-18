@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: "What types of businesses can use Tura?",
-    a: "Tura is built for any business that moves products — ecommerce brands, retail stores, food businesses, pharmacies, FMCG distributors, fashion labels, and more. If you operate in Lagos and need reliable delivery coordination, Tura is designed for you.",
+    a: "Tura is built for any business that moves products ecommerce brands, retail stores, food businesses, pharmacies, FMCG distributors, fashion labels, and more. If you operate in Lagos and need reliable delivery coordination, Tura is designed for you.",
   },
   {
     q: "Does Tura support warehouse-to-retailer distribution?",
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: "How does Tura coordinate deliveries for my business?",
-    a: "Once you submit an order through the dashboard, Tura matches it to the nearest available verified rider using proximity and load-balancing logic. You receive real-time status updates at every stage — pickup, in transit, and delivered.",
+    a: "Once you submit an order through the dashboard, Tura matches it to the nearest available verified rider using proximity and load-balancing logic. You receive real-time status updates at every stage - pickup, in transit, and delivered.",
   },
   {
     q: "How do businesses get started with Tura?",
@@ -31,7 +31,7 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => (
       className="group w-full flex items-start justify-between gap-6 py-6 text-left focus:outline-none"
     >
       <div className="flex items-start gap-4 flex-1">
-        <span className="flex-shrink-0 mt-0.5 text-[11px] font-bold tracking-[0.15em] text-slate-300 w-6 tabular-nums">
+        <span className="shrink-0 mt-0.5 text-[11px] font-bold tracking-[0.15em] text-slate-300 w-6 tabular-nums">
           {String(index + 1).padStart(2, "0")}
         </span>
         <span
@@ -48,7 +48,7 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => (
       <motion.div
         animate={{ rotate: isOpen ? 45 : 0 }}
         transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-        className={`flex-shrink-0 mt-0.5 w-6 h-6 rounded-full flex items-center justify-center border transition-colors duration-200 ${
+        className={`shrink-0 mt-0.5 w-6 h-6 rounded-full flex items-center justify-center border transition-colors duration-200 ${
           isOpen
             ? "border-green-500 bg-green-500 text-white"
             : "border-slate-200 bg-white text-slate-400 group-hover:border-green-400 group-hover:text-green-500"
@@ -95,7 +95,7 @@ const FAQ = () => {
 
   return (
     <section className="relative w-full py-28 bg-white overflow-hidden">
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full bg-green-50 blur-[100px] opacity-80" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-175 h-75 rounded-full bg-green-50 blur-[100px] opacity-80" />
 
       <div className="relative max-w-4xl mx-auto px-6 lg:px-12">
         {/* Header */}

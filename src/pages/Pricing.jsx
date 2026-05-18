@@ -1,37 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeroSection from "./HeroSection";
+import { Link } from "react-router-dom";
+
 const PACKAGES = [
   {
     id: "spark",
     name: "Spark",
-    persona: "For solo-run shops testing dispatch",
-    price: 45000,
+    persona: "For small businesses starting structured daily deliveries",
     highlight: false,
     badge: null,
     cta: "Get started",
-    href: "/onboard",
+    href: "/contact",
+    headerColor: "from-stone-700 to-stone-500",
     features: [
       "15 deliveries usable across any 45 consecutive days",
       "Class M goods handling only",
       "Single pickup address within operating zone",
-      "Dedicated Tura operations contact via WhatsApp & phone",
-      "One-time rollover of unused drops into the next Spark cycle",
+      "Dedicated Tura operations manager",
+      "One-time rollover of unused drops",
     ],
   },
   {
     id: "starter",
     name: "Starter",
     persona: "For businesses with recurring weekly or daily deliveries",
-    price: 180000,
     highlight: false,
     badge: null,
-    cta: "Get started",
-    href: "/onboard",
+    cta: "Talk to operations",
+    href: "/contact",
+    headerColor: "from-cyan-900 to-cyan-700",
     features: [
       "Up to 100 deliveries per calendar month",
       "Class M goods handling only",
       "Single pickup location within one contiguous zone",
-      "Dedicated Tura operations contact",
+      "Dedicated Tura operations manager",
       "Daily manifest processing & dispatch coordination",
       "End-of-day completion summary",
     ],
@@ -40,16 +42,16 @@ const PACKAGES = [
     id: "essential",
     name: "Essential",
     persona: "For brands with high-volume daily dispatch needs",
-    price: 320000,
-    highlight: true,
-    badge: "Most popular",
-    cta: "Get started",
-    href: "/onboard",
+    highlight: false,
+    badge: "",
+    cta: "Request pricing",
+    href: "/contact",
+    headerColor: "from-violet-900 to-violet-600",
     features: [
       "Up to 250 deliveries per calendar month",
       "Class M goods handling only",
       "Multiple pickup points within operating zone",
-      "Dedicated Tura operations contact",
+      "Dedicated Tura operations manager",
       "Daily manifest processing & dispatch coordination",
       "End-of-day completion reporting",
       "Monthly written performance summary",
@@ -59,18 +61,18 @@ const PACKAGES = [
     id: "growth",
     name: "Growth",
     persona:
-      "For expanding SMEs with structured daily logistics operations across multiple Lagos zones",
-    price: 580000,
-    highlight: false,
-    badge: null,
+      "For expanding SMEs with structured daily logistics operations across multiple zones",
+    highlight: true,
+    badge: "Most popular",
     cta: "Talk to us",
     href: "/contact",
+    headerColor: "from-emerald-700 to-emerald-400",
     features: [
       "Up to 500 deliveries per calendar month",
       "Class M standard delivery support",
-      "Class V delivery available at scoped van operator rates",
-      "Expanded coverage across in multiple zones",
-      "Dedicated Tura operations contact",
+      "Class V delivery available at scoped rates",
+      "Expanded coverage across multiple zones",
+      "Dedicated Tura operations manager",
       "Daily manifest processing & dispatch coordination",
       "End-of-day completion reporting",
       "Weekly written performance reports",
@@ -79,17 +81,16 @@ const PACKAGES = [
   {
     id: "scale",
     name: "Scale",
-    persona: "For brands with high-volume daily dispatch needs",
-    price: 950000,
+    persona: "For enterprise with high-density daily dispatch needs",
     highlight: false,
     badge: "",
-    cta: "Get started",
-    href: "/onboard",
+    cta: "Get a quote",
+    href: "/contact",
+    headerColor: "from-gray-950 via-gray-800 to-gray-950",
     features: [
       "Custom fleet operations from ₦950,000 per month",
       "Dedicated multi-vehicle logistics coordination",
-      "Class M standard support with scoped Class V vehicle operations",
-      "Nightly route sheet planning for all active vehicles",
+      "Class M standard & Class V vehicle operations",
       "Real-time run tracking with proactive delay & exception updates",
       "Weekly performance reporting & monthly commercial reviews",
       "Dedicated operations contact with direct phone access",
@@ -97,11 +98,11 @@ const PACKAGES = [
   },
 ];
 
-function formatPrice(price) {
-  return `₦${price.toLocaleString("en-NG")}`;
-}
-
 const Pricing = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <main
       style={{
@@ -131,7 +132,7 @@ const Pricing = () => {
             <div
               key={pkg.id}
               className={`
-        relative rounded-3xl p-8 pb-6
+        relative rounded-3xl overflow-hidden
         ${i === 3 ? "sm:col-start-1 lg:col-start-1 lg:translate-x-1/2" : ""}
         ${i === 4 ? "sm:col-start-2 lg:col-start-2 lg:translate-x-1/2" : ""}
         ${
@@ -141,64 +142,64 @@ const Pricing = () => {
         }
       `}
             >
-              {/* Badge */}
-              {pkg.badge && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-[10px] font-bold tracking-widest uppercase px-4 py-1 rounded-full whitespace-nowrap">
-                  {pkg.badge}
-                </div>
-              )}
-
-              {/* Plan name */}
-              <p
-                className={`font-mono text-[10.5px] font-bold tracking-[0.12em] uppercase mb-2 ${
-                  pkg.highlight ? "text-emerald-600" : "text-gray-400"
-                }`}
-              >
-                {pkg.name}
-              </p>
-
-              {/* Persona */}
-              <p className="text-[13px] leading-relaxed text-gray-500 mb-5">
-                {pkg.persona}
-              </p>
-
-              {/* Price */}
-              <div className="mb-6">
-                <span className="font-serif text-[38px] font-bold tracking-tight text-gray-900">
-                  {formatPrice(pkg.price)}
-                </span>
-                <span className="ml-1 text-[13px] text-gray-400">/ month</span>
-              </div>
-
-              {/* Features */}
+              {/* Plan name header band */}
               <div
-                className={`border-t pt-4 mb-6 ${
-                  pkg.highlight ? "border-green-200" : "border-gray-100"
-                }`}
+                className={`px-8 pt-8 pb-5 bg-linear-to-r ${pkg.headerColor} relative overflow-hidden`}
               >
-                {pkg.features.map((feature) => (
-                  <div key={feature} className="flex items-start gap-2.5 mb-3">
-                    <span className="text-emerald-600 font-bold text-[13px] mt-0.5 shrink-0">
-                      ✓
-                    </span>
-                    <span className="text-[13.5px] text-gray-700 leading-relaxed">
-                      {feature}
-                    </span>
+                <div className="absolute inset-0 opacity-20 blur-2xl bg-white" />
+                {pkg.badge && (
+                  <div className="mb-3 inline-flex bg-white/20 text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full">
+                    {pkg.badge}
                   </div>
-                ))}
+                )}
+                <h3
+                  className="text-[28px] font-black tracking-tight text-white leading-none"
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                >
+                  {pkg.name}
+                </h3>
               </div>
 
-              {/* CTA */}
-              <a
-                href={pkg.href}
-                className={`block text-center no-underline px-4 py-3 rounded-2xl text-sm font-semibold transition-opacity hover:opacity-90 ${
-                  pkg.highlight
-                    ? "bg-emerald-600 text-white shadow-[0_6px_18px_rgba(5,150,105,0.22)]"
-                    : "bg-transparent text-emerald-600 border border-emerald-600"
-                }`}
-              >
-                {pkg.cta}
-              </a>
+              {/* Card body */}
+              <div className="px-8 pt-5 pb-6">
+                {/* Persona */}
+                <p className="text-[13px] leading-relaxed text-gray-500 mb-5">
+                  {pkg.persona}
+                </p>
+
+                {/* Features */}
+                <div
+                  className={`border-t pt-4 mb-6 ${
+                    pkg.highlight ? "border-green-200" : "border-gray-100"
+                  }`}
+                >
+                  {pkg.features.map((feature) => (
+                    <div
+                      key={feature}
+                      className="flex items-start gap-2.5 mb-3"
+                    >
+                      <span className="text-emerald-600 font-bold text-[13px] mt-0.5 shrink-0">
+                        ✓
+                      </span>
+                      <span className="text-[13.5px] text-gray-700 leading-relaxed">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <Link
+                  to={pkg.href}
+                  className={`block text-center no-underline px-4 py-3 rounded-2xl text-sm font-semibold transition-opacity hover:opacity-90 ${
+                    pkg.highlight
+                      ? "bg-emerald-600 text-white shadow-[0_6px_18px_rgba(5,150,105,0.22)]"
+                      : "bg-transparent text-emerald-600 border border-emerald-600"
+                  }`}
+                >
+                  {pkg.cta}
+                </Link>
+              </div>
             </div>
           ))}
         </section>

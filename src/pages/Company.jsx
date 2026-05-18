@@ -21,7 +21,7 @@ const VALUES = [
   {
     icon: "⚡",
     title: "Speed Without Compromise",
-    desc: "We treat every delivery like it was our own — urgent, precise, and done right the first time.",
+    desc: "We treat every delivery like it was our own urgent, precise, and done right the first time.",
   },
   {
     icon: "🤝",
@@ -36,7 +36,7 @@ const VALUES = [
   {
     icon: "📐",
     title: "Built for Scale",
-    desc: "From a single pharmacy to a network of stores — Tura flexes to your operational reality.",
+    desc: "From small operations to multi-location enterprises, Tura scales with your logistics demands.",
   },
 ];
 
@@ -89,52 +89,67 @@ function FadeIn({ children, delay = 0, className = "" }) {
 }
 
 const Company = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+  
   return (
-    <div className="bg-[#FAFAF8] text-[#111] overflow-x-hidden font-sans">
+    <div className="bg-[#FAFAF8] text-[#111] overflow-x-hidden  relative">
+      {/* Faint background grid */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.022]"
+        style={{
+          backgroundImage:
+            "linear-gradient(#0f172a 1px, transparent 1px), linear-gradient(90deg, #0f172a 1px, transparent 1px)",
+          backgroundSize: "52px 52px",
+        }}
+      />
       {/* HERO */}
       <HeroSection
-        badgeText="Lagos runs on people."
-        title="Lagos runs on people."
-        highlightText="We keep them moving."
-        description="Tura is a B2B logistics and task execution platform built for the
-            small businesses that power Nigeria's economy pharmacies,
-            supermarkets, fashion boutiques, and the merchants who refuse to be
-            limited by bad infrastructure."
+        badgeText="Nigeria thrives on businesses."
+        title="Businesses keep the economy moving."
+        highlightText="We keep them running.."
+        description="Tura is a B2B logistics service built for the businesses that power Nigeria's economy from retail chains and manufacturers to distributors, producers, and growing enterprises that refuse to be held back by unreliable logistics infrastructure."
       />
-
       {/* ABOUT */}
-      <section className="px-[6vw] py-24">
+      <section
+        className="px-[6vw] py-24 font-poppins"
+        style={{ fontFamily: "Poppins, sans-serif" }}
+      >
         <FadeIn>
           <div className="grid items-center gap-14 lg:grid-cols-2">
             <div>
-              <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#F0A500]">
+              {/* Badge */}
+              <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-green-700">
                 Our story
               </div>
 
-              <h2 className="mb-6 font-serif text-[clamp(32px,4vw,56px)] font-bold leading-[1.12] text-[#111]">
-                Built from{" "}
-                <em className="italic text-green-700">frustration.</em>
+              {/* Headline */}
+              <h2 className="mb-6 text-[clamp(32px,4vw,56px)] font-bold leading-[1.12] text-[#111]">
+                Fixing <em className="italic text-green-700">Logistics.</em>
                 <br />
-                Driven by purpose.
+                Powering execution
               </h2>
 
               <p className="mb-5 text-[clamp(15px,1.2vw,17px)] font-light leading-[1.8] text-[#444]">
-                Every founder of Tura has watched a Lagos SME owner lose a
-                customer, miss a sale, or absorb a loss because logistics failed
-                them. The riders didn't show. The package arrived damaged. There
-                was no number to call and no one accountable.
+                Across Nigeria, businesses lose revenue daily not because demand
+                is missing, but because logistics fails at the point of
+                execution missed deliveries, unreliable dispatch, lack of
+                visibility, and no accountable system when things go wrong.
               </p>
 
               <p className="text-[clamp(15px,1.2vw,17px)] font-light leading-[1.8] text-[#444]">
-                We built Tura to change that equation — not just as a delivery
-                service, but as a reliable operations partner that SMEs can
-                delegate to with full confidence. When you hand us a task, it
-                gets done. That's the promise we wake up to fulfil every day.
+                Tura was built to solve this gap not as a courier service, but
+                as a logistics operations partner for businesses that need
+                structure, reliability, and scale. We manage the execution layer
+                so businesses can focus on growth, with the confidence that
+                every delivery is tracked, coordinated, and completed.
               </p>
             </div>
 
+            {/* Images */}
             <div className="relative pb-10 pr-10">
-              <div className="group relative aspect-[4/3] overflow-hidden rounded">
+              <div className="group relative aspect-4/3 overflow-hidden rounded">
                 <img
                   src={IMAGES.delivery}
                   alt="Delivery operations"
@@ -142,7 +157,7 @@ const Company = () => {
                 />
               </div>
 
-              <div className="absolute bottom-[-32px] right-[-32px] z-10 hidden aspect-[3/4] w-[48%] overflow-hidden rounded border-[5px] border-[#FAFAF8] lg:block">
+              <div className="absolute -bottom-8 -right-8 z-10 hidden aspect-3/4 w-[48%] overflow-hidden rounded border-[5px] border-[#FAFAF8] lg:block">
                 <img
                   src={IMAGES.rider}
                   alt="Tura rider on the move"
@@ -153,13 +168,16 @@ const Company = () => {
           </div>
         </FadeIn>
       </section>
-
       {/* WHAT TURA STANDS FOR */}
-      <section className="px-[6vw] py-24">
+
+      <section
+        className="px-[6vw] py-24"
+        style={{ fontFamily: "Poppins, sans-serif" }}
+      >
         <FadeIn>
           <div className="flex flex-col-reverse lg:flex-row-reverse items-center gap-14">
             <div className="lg:order-2">
-              <div className="group relative aspect-[3/4] overflow-hidden rounded">
+              <div className="group relative aspect-3/4 overflow-hidden rounded">
                 <img
                   src={IMAGES.handshake}
                   alt="Business partnership"
@@ -173,7 +191,7 @@ const Company = () => {
                 What we stand for
               </div>
 
-              <h2 className="mb-6 font-serif text-[clamp(32px,4vw,56px)] font-bold leading-[1.12] text-[#111]">
+              <h2 className="mb-6  text-[clamp(32px,4vw,56px)] font-bold leading-[1.12] text-[#111]">
                 The meaning
                 <br />
                 behind <em className="italic text-green-600">TURA</em>
@@ -181,7 +199,7 @@ const Company = () => {
 
               <p className="text-[clamp(15px,1.2vw,17px)] font-light leading-[1.8] text-[#444]">
                 Every letter in our name is a commitment. These aren't corporate
-                values pinned to a wall — they're the operating principles our
+                values pinned to a wall they're the operating principles our
                 team lives by in every dispatch, every drop, every interaction.
               </p>
 
@@ -197,7 +215,7 @@ const Company = () => {
                     letter: "U",
                     word: "Unwavering",
                     meaning:
-                      "Traffic, weather, high volumes — we don't find excuses. We find solutions.",
+                      "Traffic, weather, high volumes we don't find excuses. We find solutions.",
                   },
                   {
                     letter: "R",
@@ -209,7 +227,7 @@ const Company = () => {
                     letter: "A",
                     word: "Accountable",
                     meaning:
-                      "We own outcomes. When something goes wrong, we show up — not disappear.",
+                      "We own outcomes. When something goes wrong, we show up not disappear.",
                   },
                 ].map((item, index) => (
                   <div
@@ -218,7 +236,7 @@ const Company = () => {
                       index === 0 ? "border-t" : ""
                     } border-b`}
                   >
-                    <span className="min-w-11 font-serif text-[40px] font-bold leading-none text-green-600">
+                    <span className="min-w-11 text-[40px] font-bold leading-none text-green-600">
                       {item.letter}
                     </span>
 
@@ -241,13 +259,16 @@ const Company = () => {
 
       {/* MISSION */}
       <section className="relative overflow-hidden bg-[#111] px-[6vw] py-24">
-        <div className="pointer-events-none absolute right-[-4vw] top-1/2 hidden -translate-y-1/2 font-serif text-[28vw] font-bold leading-none text-white/[0.03] lg:block">
+        <div className="pointer-events-none absolute right-[-4vw] top-1/2 hidden -translate-y-1/2 font-serif text-[28vw] font-bold leading-none text-white/3 lg:block">
           TURA
         </div>
 
         <FadeIn>
           <div className="relative z-10 max-w-190">
-            <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-green-600">
+            <div
+              className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-green-600"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
               Our mission
             </div>
 
@@ -257,18 +278,24 @@ const Company = () => {
               price that makes sense for a growing business."
             </div>
 
-            <p className="max-w-145 text-[16px] font-light leading-[1.85] text-white/60">
+            <p
+              className="max-w-145 text-[16px] font-light leading-[1.85] text-white/60"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
               We believe the informal economy of Lagos is not informal by
               choice. It is informal by circumstance. When the right
-              infrastructure shows up — structured, affordable, accountable —
-              these businesses scale. That's what Tura is here to do.
+              infrastructure shows up structured, affordable, accountable these
+              businesses scale. That's what Tura is here to do.
             </p>
           </div>
         </FadeIn>
       </section>
 
       {/* VALUES */}
-      <section className="bg-[#F5F3EE] px-[6vw] py-18">
+      <section
+        className="bg-[#F5F3EE] px-[6vw] py-18"
+        style={{ fontFamily: "Poppins, sans-serif" }}
+      >
         <FadeIn>
           <div className="mb-14 max-w-155">
             <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-green-600">
@@ -302,7 +329,10 @@ const Company = () => {
       </section>
 
       {/* TEAM */}
-      <section className="px-[6vw] py-24">
+      <section
+        className="px-[6vw] py-24"
+        style={{ fontFamily: "Poppins, sans-serif" }}
+      >
         <FadeIn>
           <div className="grid items-center gap-14 lg:grid-cols-2">
             <div>
@@ -310,21 +340,25 @@ const Company = () => {
                 Our people
               </div>
 
-              <h2 className="mb-6 font-serif text-[clamp(32px,4vw,56px)] font-bold leading-[1.12] text-[#111]">
+              <h2 className="mb-6  text-[clamp(32px,4vw,56px)] font-bold leading-[1.12] text-[#111]">
                 A team that <em className="italic text-green-600">shows up</em>
               </h2>
 
               <p className="mb-5 text-[clamp(15px,1.2vw,17px)] font-light leading-[1.8] text-[#444]">
-                Tura is built by people who understand Lagos — its energy, its
-                complexity, and the human effort it takes to make things work in
-                this city. Our riders, dispatchers, and operations team are not
-                just contractors. They are partners in the mission.
+                Tura is built by people who understand Nigeria’s business
+                environment — its operational complexity, its regional
+                differences, and the coordination it takes to keep commerce
+                moving across cities and markets. Our operations team,
+                dispatchers, and network partners are not just service providers
+                they are part of the system that makes execution possible.
               </p>
 
               <p className="text-[clamp(15px,1.2vw,17px)] font-light leading-[1.8] text-[#444]">
-                We invest in their training, their welfare, and their growth —
-                because the quality of their work is the quality of yours. A
-                business that cares for its people delivers better. Always.
+                We invest in training, structure, and accountability because the
+                quality of execution depends on the strength of the people
+                behind it. When the system is well-run and the operators are
+                supported, businesses experience consistency and consistency is
+                what drives growth.
               </p>
             </div>
 
@@ -356,9 +390,17 @@ const Company = () => {
           </div>
         </FadeIn>
       </section>
-
       {/* CTA */}
-      <HomeCTA/>
+      <HomeCTA
+        badge="Managed Logistics Infrastructure"
+        title="Built for businesses"
+        highlight="that don’t settle for broken logistics"
+        description="Tura partners with growing and enterprise teams to design and run reliable logistics operations structured, scalable, and built for modern commerce."
+        primaryLabel="/contact"
+        secondaryLabel="/pricing"
+        primaryCta="Talk to Us"
+        secondaryCta="See Pricing"
+      />
     </div>
   );
 };

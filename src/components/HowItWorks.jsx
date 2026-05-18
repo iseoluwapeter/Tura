@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { MissionImage } from "../assets";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -138,7 +139,7 @@ const StepCard = ({ step, index }) => {
           {step.title}
         </h3>
         <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
-          {step.description}2
+          {step.description}
         </p>
       </div>
     </motion.div>
@@ -238,13 +239,15 @@ const HowItWorks = () => {
                   Join hundreds of Lagos businesses on Tura.
                 </p>
               </div>
-              <motion.button
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
-                className="shrink-0 bg-white hover:bg-green-400 text-green-900 text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
-              >
-                Get started →
-              </motion.button>
+              <Link to="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="shrink-0 bg-white hover:bg-green-400 text-green-900 text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
+                >
+                  Get started →
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
 

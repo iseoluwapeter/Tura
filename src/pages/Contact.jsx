@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   FiPhone,
   FiMail,
@@ -49,8 +49,18 @@ const Contact = () => {
     },
   ];
 
+   
+useEffect(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}, []);
+
   return (
-    <div className="min-h-screen bg-[#F7F5F0] font-sans">
+    <div
+      className="min-h-screen bg-[#F7F5F0] "
+      style={{ fontFamily: "Poppins, sans-serif" }}
+    >
+
+
       <div className="max-w-6xl mx-auto px-6 py-20">
         {/* Header */}
         <div className="mb-16">
@@ -59,7 +69,7 @@ const Contact = () => {
             Get in touch
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-tight text-[#1A1714] max-w-xl">
+          <h1 className=" font-semibold text-4xl sm:text-5xl lg:text-6xl leading-tight text-[#1A1714] max-w-xl">
             We're always <em className="text-green-600 italic">here</em> to
             help.
           </h1>
@@ -70,14 +80,15 @@ const Contact = () => {
           {/* LEFT */}
           <div>
             <p className="text-[#5A534C] font-light leading-relaxed max-w-md mb-12">
-              Whether you need help with a task, want to become a Tasker, or
-              just have a question — we’re ready to assist you.
+              Whether you’re looking to improve your logistics operations,
+              partner with Tura, or make an enquiry. Our team is ready to
+              assist.
             </p>
 
             <div className="space-y-7">
               {contactItems.map((item, i) => (
                 <div key={i} className="flex gap-4 group">
-                  <div className="w-11 h-11 flex items-center justify-center rounded-xl border border-green-600/20 bg-[#C27A3A]/10 text-green-600 text-lg">
+                  <div className="w-11 h-11 flex items-center justify-center rounded-xl border border-green-600/20 bg-green-500/20 text-[#1A1714] text-lg">
                     {item.icon}
                   </div>
 
@@ -90,26 +101,13 @@ const Contact = () => {
                 </div>
               ))}
             </div>
-
-            <div className="my-12 w-12 h-px bg-linear-to-r from-[#07a93f] to-transparent" />
-
-            <div>
-              <h3 className="font-serif text-lg text-[#1A1714] mb-3">
-                Business Hours
-              </h3>
-              <div className="text-sm text-[#5A534C] space-y-1">
-                <p>Monday – Friday: 8:00 AM – 8:00 PM</p>
-                <p>Saturday: 9:00 AM – 6:00 PM</p>
-                <p>Sunday: 10:00 AM – 4:00 PM</p>
-              </div>
-            </div>
           </div>
 
           {/* RIGHT - FORM (NO WHITE GRADIENT) */}
           <div className="bg-[#F2EFE8] border border-[#E7E2DA] rounded-2xl p-8">
             {!submitted ? (
               <>
-                <h2 className="font-serif text-2xl mb-1">Send a message</h2>
+                <h2 className=" text-2xl mb-1">Send a message</h2>
                 <p className="text-sm text-[#8A7F76] mb-8">
                   We’ll respond within one business day.
                 </p>
@@ -172,7 +170,16 @@ const Contact = () => {
         </div>
       </div>
 
-      <HomeCTA/>
+      <HomeCTA
+        badge="Managed Logistics Infrastructure"
+        title="Let’s support"
+        highlight="your operations"
+        description="Tell us what you need from daily dispatch to full logistics management and our team will get back to you with a structured plan for your business."
+        primaryLabel="mailto:hello@tura.com"
+        secondaryLabel="/pricing"
+        primaryCta="Send a Message"
+        secondaryCta="View Pricing"
+      />
     </div>
   );
 };

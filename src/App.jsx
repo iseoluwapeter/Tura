@@ -9,6 +9,7 @@ import Services from "./pages/Services";
 import Pricing from "./pages/Pricing";
 import Company from "./pages/Company";
 import Contact from "./pages/Contact";
+import MessageCTA from "./components/MessageCTA";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/company" element={<Company />} />
         <Route path="/contact" element={<Contact/>} />
       </Routes>
+      <MessageCTA/>
       <Footer />
     </>
   );

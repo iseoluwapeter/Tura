@@ -215,16 +215,7 @@ const Industries = () => {
             <IndustryCard key={industry.title} industry={industry} index={i} />
           ))}
 
-          {/* Fill cell — keeps grid balanced when 5 items in 3-col layout */}
-          <div className="hidden lg:block border-b border-white/20 p-8">
-            <div className="h-full flex items-center justify-center">
-              <p className="text-white/30 text-sm text-center leading-relaxed">
-                More industries
-                <br />
-                coming soon
-              </p>
-            </div>
-          </div>
+       
         </motion.div>
       </div>
 

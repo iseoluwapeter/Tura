@@ -1,14 +1,15 @@
 import React from "react";
-import { TuraLogo } from "../assets";
+import { IconWhite, TuraLogo } from "../assets";
 
 const Footer = () => {
   return (
     <footer className="w-full bg-slate-900 text-slate-300 py-16">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-4 gap-10">
+      <div className="max-w-8xl mx-auto px-6 lg:px-12 grid md:grid-cols-4 gap-10">
         <div>
-          <img src={TuraLogo} alt="Tura" className="w-20 md:w-40" />
+          <img src={IconWhite} alt="Tura" className="w-20 md:w-35" />
           <p className="text-slate-400">
-            Structured logistics for growing businesses in Lagos.
+            Structured logistics infrastructure for growing businesses across
+            Nigeria.
           </p>
         </div>
 

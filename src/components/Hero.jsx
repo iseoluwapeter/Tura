@@ -1,119 +1,57 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { FiPhoneCall } from "react-icons/fi";
+import { motion } from "framer-motion";
 
-// ─── Live dispatch ticker ─────────────────────────────────────────────────────
-const TICKER_ITEMS = [
-  {
-    id: "TRA-2841",
-    zone: "Victoria Island",
-    status: "Delivered",
-    time: "2m ago",
-  },
-  {
-    id: "TRA-2840",
-    zone: "Lekki Phase 1",
-    status: "In transit",
-    time: "5m ago",
-  },
-  { id: "TRA-2839", zone: "Lagos Island", status: "Delivered", time: "9m ago" },
-  { id: "TRA-2838", zone: "Ikoyi", status: "Delivered", time: "12m ago" },
-];
+// ─── Animation variants ───────────────────────────────────────────────────────
 
-function DispatchTicker() {
-  return (
-    <div className="absolute bottom-5 left-5 right-5 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-gray-100">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span
-            className="text-[10px] font-semibold tracking-[0.1em] uppercase text-gray-500"
-            style={{ fontFamily: "'DM Mono', monospace" }}
-          >
-            Live dispatch feed
-          </span>
-        </div>
-        <span
-          className="text-[10px] text-emerald-600 font-medium"
-          style={{ fontFamily: "'DM Mono', monospace" }}
-        >
-          Lagos network
-        </span>
-      </div>
-      <div className="divide-y divide-gray-50">
-        {TICKER_ITEMS.map((item, i) => (
-          <div
-            key={item.id}
-            className="flex items-center justify-between px-4 py-2"
-            style={{
-              animation: `tickerFade 0.4s ease forwards ${i * 80}ms`,
-              opacity: 0,
-            }}
-          >
-            <div className="flex items-center gap-2.5">
-              <span
-                className="text-[10px] text-gray-400"
-                style={{ fontFamily: "'DM Mono', monospace" }}
-              >
-                {item.id}
-              </span>
-              <span className="text-[11.5px] text-gray-700 font-medium">
-                {item.zone}
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span
-                className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                  item.status === "Delivered"
-                    ? "bg-emerald-50 text-emerald-700"
-                    : "bg-amber-50 text-amber-700"
-                }`}
-              >
-                {item.status}
-              </span>
-              <span className="text-[10px] text-gray-400">{item.time}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+const fadeSlideUp = {
+  hidden: { opacity: 0, y: 18 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: "easeOut", delay },
+  }),
+};
+
+const fadeSlideRight = {
+  hidden: { opacity: 0, x: -18 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut", delay },
+  }),
+};
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    transition: { duration: 0.8, ease: "easeOut", delay },
+  }),
+};
+
+const floatY = {
+  animate: {
+    y: [0, -10, 0],
+    transition: { duration: 5, ease: "easeInOut", repeat: Infinity },
+  },
+};
 
 // ─── Main Hero ────────────────────────────────────────────────────────────────
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Slight delay so CSS animations fire after paint
     const t = setTimeout(() => setMounted(true), 100);
     return () => clearTimeout(t);
   }, []);
 
   return (
     <>
-      {/* Keyframes */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@500&display=swap');
 
-        @keyframes fadeSlideUp {
-          from { opacity: 0; transform: translateY(18px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeSlideRight {
-          from { opacity: 0; transform: translateX(-18px); }
-          to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-        }
-        @keyframes tickerFade {
-          from { opacity: 0; transform: translateX(-8px); }
-          to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes floatY {
-          0%, 100% { transform: translateY(0px); }
-          50%       { transform: translateY(-10px); }
-        }
         @keyframes gradientShift {
           0%, 100% { background-position: 0% 50%; }
           50%       { background-position: 100% 50%; }
@@ -130,9 +68,6 @@ export default function Hero() {
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
-        .float-panel {
-          animation: floatY 5s ease-in-out infinite;
-        }
         .hero-bg-dot {
           background-image: radial-gradient(circle, #d1d5db 1px, transparent 1px);
           background-size: 24px 24px;
@@ -143,12 +78,12 @@ export default function Hero() {
         className="relative min-h-[calc(100vh-64px)] flex items-center overflow-hidden bg-white"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
-        {/* Subtle dot-grid background */}
+        {/* Dot-grid background */}
         <div className="hero-bg-dot absolute inset-0 opacity-40 pointer-events-none" />
 
         {/* Top-left emerald blob */}
         <div
-          className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none"
+          className="absolute -top-32 -left-32 w-125 h-125 rounded-full pointer-events-none"
           style={{
             background:
               "radial-gradient(circle, rgba(5,150,105,0.08) 0%, transparent 70%)",
@@ -157,7 +92,7 @@ export default function Hero() {
 
         {/* Bottom-right blob */}
         <div
-          className="absolute -bottom-24 -right-24 w-[400px] h-[400px] rounded-full pointer-events-none"
+          className="absolute -bottom-24 -right-24 w-100 h-100 rounded-full pointer-events-none"
           style={{
             background:
               "radial-gradient(circle, rgba(13,148,136,0.06) 0%, transparent 70%)",
@@ -169,70 +104,64 @@ export default function Hero() {
             {/* ── LEFT: Copy ─────────────────────────────────────────────── */}
             <div className="flex flex-col justify-center">
               {/* Eyebrow pill */}
-              <div
+              <motion.div
                 className="inline-flex items-center gap-2 self-start mb-7 px-3.5 py-1.5 rounded-full border border-emerald-200 bg-emerald-50"
-                style={{
-                  opacity: 0,
-                  animation: mounted
-                    ? "fadeSlideUp 0.5s ease forwards 0ms"
-                    : "none",
-                }}
+                variants={fadeSlideUp}
+                initial="hidden"
+                animate={mounted ? "visible" : "hidden"}
+                custom={0}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span
-                  className="text-[11px] font-semibold tracking-[0.1em] uppercase text-emerald-700"
+                  className="text-[11px] font-semibold tracking-widest uppercase text-emerald-700"
                   style={{ fontFamily: "'DM Mono', monospace" }}
                 >
-                  · Third party logistics
+                  Managed Logistics Infrastructure
                 </span>
-              </div>
+              </motion.div>
 
               {/* Headline */}
-              <h1
+              <motion.h1
                 className="hero-headline text-[2.75rem] lg:text-[3.25rem] xl:text-[3.75rem] leading-[1.08] font-bold text-gray-900 mb-6"
                 style={{
                   fontFamily: "'DM Serif Display', Georgia, serif",
                   letterSpacing: "-0.02em",
-                  opacity: 0,
-                  animation: mounted
-                    ? "fadeSlideUp 0.65s ease forwards 80ms"
-                    : "none",
                 }}
+                variants={fadeSlideUp}
+                initial="hidden"
+                animate={mounted ? "visible" : "hidden"}
+                custom={0.08}
               >
                 Last-mile logistics
                 <br />
-                with <em>judgment</em>,
+                with <em>operational intelligence</em>,
                 <br />
                 not just speed.
-              </h1>
+              </motion.h1>
 
               {/* Sub-headline */}
-              <p
-                className="text-[16.5px] text-gray-500 leading-[1.7] max-w-[480px] mb-8"
-                style={{
-                  opacity: 0,
-                  animation: mounted
-                    ? "fadeSlideUp 0.65s ease forwards 180ms"
-                    : "none",
-                }}
+              <motion.p
+                className="text-[16.5px] text-gray-500 leading-[1.7] max-w-120 mb-8"
+                variants={fadeSlideUp}
+                initial="hidden"
+                animate={mounted ? "visible" : "hidden"}
+                custom={0.18}
               >
-                Tura handles your dispatch operations end-to-end — from manifest
-                creation to proof of delivery — so your team can focus on the
-                business, not the logistics.
-              </p>
+                Tura runs your dispatch operations end-to-end — from manifest
+                planning to proof of delivery — so your team can focus on
+                growth, not coordination chaos.
+              </motion.p>
 
               {/* CTA row */}
-              <div
+              <motion.div
                 className="flex flex-wrap items-center gap-3 mb-10"
-                style={{
-                  opacity: 0,
-                  animation: mounted
-                    ? "fadeSlideUp 0.65s ease forwards 280ms"
-                    : "none",
-                }}
+                variants={fadeSlideUp}
+                initial="hidden"
+                animate={mounted ? "visible" : "hidden"}
+                custom={0.28}
               >
-                <a
-                  href="/services"
+                <Link
+                  to="/services"
                   className="inline-flex items-center gap-2 px-6 py-3.5 bg-white border border-gray-200 hover:border-emerald-300 hover:bg-emerald-50 text-gray-700 hover:text-emerald-800 text-[14px] font-medium rounded-xl transition-all duration-150"
                 >
                   Explore services
@@ -245,50 +174,37 @@ export default function Hero() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </a>
-                <a
-                  href="/contact"
+                </Link>
+                <Link
+                  to="/contact"
                   className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white text-[14px] font-semibold rounded-xl transition-all duration-150 shadow-lg shadow-emerald-700/25"
                 >
-                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                    <rect
-                      x="1"
-                      y="2.5"
-                      width="13"
-                      height="10"
-                      rx="2.5"
-                      stroke="white"
-                      strokeWidth="1.4"
-                    />
-                    <path d="M5.5 5.5l4 2-4 2V5.5z" fill="white" />
-                  </svg>
+                  <FiPhoneCall className="text-[16px]" />
                   Contact
-                </a>
-              </div>
+                </Link>
+              </motion.div>
 
               {/* Divider */}
-              <div
+              <motion.div
                 className="w-full h-px bg-gray-100 mb-8"
-                style={{
-                  opacity: 0,
-                  animation: mounted
-                    ? "fadeIn 0.5s ease forwards 380ms"
-                    : "none",
-                }}
+                variants={fadeIn}
+                initial="hidden"
+                animate={mounted ? "visible" : "hidden"}
+                custom={0.38}
               />
             </div>
 
             {/* ── RIGHT: Visual panel ─────────────────────────────────────── */}
-            <div
+            <motion.div
               className="relative flex items-center justify-center lg:justify-end"
-              style={{
-                opacity: 0,
-                animation: mounted ? "fadeIn 0.8s ease forwards 300ms" : "none",
-              }}
+              variants={fadeIn}
+              initial="hidden"
+              animate={mounted ? "visible" : "hidden"}
+              custom={0.3}
             >
-              {/* Decorative ring behind the card */}
+              {/* Decorative rings */}
               <div
-                className="absolute w-[420px] h-[420px] rounded-full border-2 border-dashed border-emerald-100"
+                className="absolute w-105 h105 rounded-full border-2 border-dashed border-emerald-100"
                 style={{
                   top: "50%",
                   left: "50%",
@@ -296,7 +212,7 @@ export default function Hero() {
                 }}
               />
               <div
-                className="absolute w-[320px] h-[320px] rounded-full border border-emerald-50"
+                className="absolute w-[320px] h-80 rounded-full border border-emerald-50"
                 style={{
                   top: "50%",
                   left: "50%",
@@ -304,8 +220,11 @@ export default function Hero() {
                 }}
               />
 
-              {/* Main card */}
-              <div className="float-panel relative w-full max-w-[440px] rounded-3xl overflow-hidden shadow-2xl shadow-gray-900/15 border border-gray-100 bg-white">
+              {/* Main card — floats gently */}
+              <motion.div
+                className="relative w-full max-w-110 rounded-3xl overflow-hidden shadow-2xl shadow-gray-900/15 border border-gray-100 bg-white"
+                animate={floatY.animate}
+              >
                 {/* Card header bar */}
                 <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-100">
                   <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
@@ -328,12 +247,12 @@ export default function Hero() {
                   </span>
                 </div>
 
-                {/* GIF container */}
-                <div className="relative bg-gray-900 aspect-[4/3] overflow-hidden">
+                {/* Logistics image */}
+                <div className="relative bg-gray-900 aspect-4/3 overflow-hidden">
                   <img
-                    src="https://media.giphy.com/media/3o7qE2fiT5seO2lsNq/giphy.gif"
-                    alt="Live logistics dispatch operations"
-                    className="w-full h-full object-cover opacity-80"
+                    src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=880&q=80"
+                    alt="Logistics warehouse operations"
+                    className="w-full h-full object-cover opacity-85"
                     loading="eager"
                   />
 
@@ -342,14 +261,14 @@ export default function Hero() {
                     className="absolute inset-0 pointer-events-none"
                     style={{
                       background:
-                        "linear-gradient(135deg, rgba(5,150,105,0.18) 0%, transparent 60%, rgba(0,0,0,0.4) 100%)",
+                        "linear-gradient(135deg, rgba(5,150,105,0.18) 0%, transparent 60%, rgba(0,0,0,0.45) 100%)",
                     }}
                   />
 
                   {/* Floating metric badge */}
                   <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl px-3 py-2 shadow-lg border border-white/50">
                     <p
-                      className="text-[9px] font-semibold tracking-[0.1em] uppercase text-gray-400"
+                      className="text-[9px] font-semibold tracking-widest uppercase text-gray-400"
                       style={{ fontFamily: "'DM Mono', monospace" }}
                     >
                       Active runs
@@ -374,24 +293,17 @@ export default function Hero() {
                     </p>
                   </div>
                 </div>
+              </motion.div>
 
-                {/* Dispatch ticker */}
-                <div className="relative h-[176px]">
-                  <DispatchTicker />
-                </div>
-              </div>
-
-              {/* Floating SLA badge — outside card, top-left */}
-              <div
+              {/* Floating SLA badge */}
+              <motion.div
                 className="absolute -left-4 top-16 bg-white rounded-2xl shadow-xl border border-gray-100 px-4 py-3 flex items-center gap-3"
-                style={{
-                  animation: mounted
-                    ? "fadeSlideRight 0.6s ease forwards 700ms"
-                    : "none",
-                  opacity: 0,
-                }}
+                variants={fadeSlideRight}
+                initial="hidden"
+                animate={mounted ? "visible" : "hidden"}
+                custom={0.7}
               >
-                <div className="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center text-lg flex-shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center text-lg shrink-0">
                   ⚡
                 </div>
                 <div>
@@ -402,19 +314,17 @@ export default function Hero() {
                     Express tier active
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Floating proof badge — bottom-left */}
-              <div
+              {/* Floating proof badge */}
+              <motion.div
                 className="absolute -left-4 bottom-20 bg-white rounded-2xl shadow-xl border border-gray-100 px-4 py-3 flex items-center gap-3"
-                style={{
-                  animation: mounted
-                    ? "fadeSlideRight 0.6s ease forwards 820ms"
-                    : "none",
-                  opacity: 0,
-                }}
+                variants={fadeSlideRight}
+                initial="hidden"
+                animate={mounted ? "visible" : "hidden"}
+                custom={0.82}
               >
-                <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center text-lg flex-shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center text-lg shrink-0">
                   📋
                 </div>
                 <div>
@@ -425,8 +335,8 @@ export default function Hero() {
                     Signed · timestamped
                   </p>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
