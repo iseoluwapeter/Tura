@@ -90,6 +90,7 @@ const PACKAGES = [
     features: [
       "Custom fleet operations from ₦950,000 per month",
       "Dedicated multi-vehicle logistics coordination",
+      "Dashboard and API Integration",
       "Class M standard & Class V vehicle operations",
       "Real-time run tracking with proactive delay & exception updates",
       "Weekly performance reporting & monthly commercial reviews",
