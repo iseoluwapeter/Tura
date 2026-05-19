@@ -1,11 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  FaBoxOpen,
-  FaWarehouse,
-  FaStore,
-  FaUsers,
-} from "react-icons/fa";
+import { FaBoxOpen, FaWarehouse, FaStore, FaUsers } from "react-icons/fa";
+import { Management, meeting } from "../assets";
 
 const services = [
   {
@@ -19,8 +15,7 @@ const services = [
     icon: <FaWarehouse />,
     title: "Bulk Distribution",
     text: "Efficient dispatch support for wholesalers and distributors.",
-    image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop",
+    image: meeting,
   },
   {
     icon: <FaBoxOpen />,
@@ -34,10 +29,9 @@ const services = [
     title: "Dedicated Partnerships",
     text: "Structured logistics support for growing businesses.",
     image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+     Management,
   },
 ];
-
 
 const ServicesSection = () => {
   return (

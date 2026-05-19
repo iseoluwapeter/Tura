@@ -1,20 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import HeroSection from "./HeroSection";
 import HomeCTA from "../components/HomeCTA";
+import { handshake, office, Rider, team, Warehouse } from "../assets";
 
 const IMAGES = {
   hero: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1400&q=80&fit=crop",
-  team: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80&fit=crop",
-  delivery:
-    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80&fit=crop",
-  warehouse:
-    "https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=80&fit=crop",
-  handshake:
-    "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&q=80&fit=crop",
-  rider:
-    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80&fit=crop",
-  office:
-    "https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&fit=crop",
+  team: team,
+  delivery: Warehouse,
+  warehouse: Warehouse,
+  handshake: handshake,
+  rider: Rider,
+  office: office,
 };
 
 const VALUES = [
@@ -92,7 +88,7 @@ const Company = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-  
+
   return (
     <div className="bg-[#FAFAF8] text-[#111] overflow-x-hidden  relative">
       {/* Faint background grid */}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiPhoneCall } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { Warehouse } from "../assets";
 
 // ─── Animation variants ───────────────────────────────────────────────────────
 
@@ -147,8 +148,8 @@ export default function Hero() {
                 animate={mounted ? "visible" : "hidden"}
                 custom={0.18}
               >
-                Tura runs your dispatch operations end-to-end — from manifest
-                planning to proof of delivery — so your team can focus on
+                Tura runs your dispatch operations end-to-end from manifest
+                planning to proof of delivery so your team can focus on
                 growth, not coordination chaos.
               </motion.p>
 
@@ -250,7 +251,7 @@ export default function Hero() {
                 {/* Logistics image */}
                 <div className="relative bg-gray-900 aspect-4/3 overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=880&q=80"
+                    src={Warehouse}
                     alt="Logistics warehouse operations"
                     className="w-full h-full object-cover opacity-85"
                     loading="eager"
