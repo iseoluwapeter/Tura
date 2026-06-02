@@ -80,15 +80,15 @@ const IndustryCard = ({ industry, index }) => {
       className={`group relative overflow-hidden border-b border-white/20 ${borderHover} transition-all duration-500 p-8 cursor-default`}
     >
       {/* Backdrop blur layer — only on hover */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm bg-white/[0.03]" />
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-sm bg-white/3" />
 
       {/* Hover gradient sweep */}
       <div
-        className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-tr ${accent}`}
+        className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-tr ${accent}`}
       />
 
       {/* Ghost icon watermark */}
-      <Icon className="absolute -right-4 -bottom-4 text-[96px] text-white/[0.04] pointer-events-none transition-transform duration-700 group-hover:scale-110 group-hover:text-white/[0.07]" />
+      <Icon className="absolute -right-4 -bottom-4 text-[96px] text-white/4 pointer-events-none transition-transform duration-700 group-hover:scale-110 group-hover:text-white/[0.07]" />
 
       {/* Content */}
       <div className="relative z-10">
@@ -143,14 +143,14 @@ const Industries = () => {
   return (
     <section className="relative w-full py-28 overflow-hidden bg-green-950 text-white">
       {/* Depth gradient — darkens toward edges, stays on-brand */}
-      <div className="absolute inset-0 bg-gradient-to-b from-green-700/60 via-transparent to-green-700/60" />
+      <div className="absolute inset-0 bg-linear-to-b from-green-700/60 via-transparent to-green-700/60" />
 
       {/* Faint glow blobs — brand-tinted */}
-      <div className="pointer-events-none absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-green-400/20 blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-green-800/40 blur-[120px]" />
+      <div className="pointer-events-none absolute -top-32 -left-32 w-125 h-125 rounded-full bg-green-400/20 blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-32 -right-32 w-125 h-125 rounded-full bg-green-800/40 blur-[120px]" />
 
       {/* Faint horizontal rule across top */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         {/* ── Header ── */}
@@ -180,7 +180,7 @@ const Industries = () => {
             >
               Logistics built for{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">
+                <span className="relative z-10 text-transparent bg-clip-text bg-linear-to-r from-white to-slate-400">
                   modern businesses
                 </span>
               </span>
@@ -196,7 +196,7 @@ const Industries = () => {
               }}
               className="text-green-100/70 text-lg leading-relaxed md:pb-1"
             >
-              Tura supports businesses across multiple industries with
+              Tuuraa supports businesses across multiple industries with
               structured delivery coordination, scalable dispatch, and reliable
               last-mile logistics.
             </motion.p>
@@ -220,7 +220,7 @@ const Industries = () => {
       </div>
 
       {/* Faint horizontal rule across bottom */}
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
     </section>
   );
 };

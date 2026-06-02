@@ -21,7 +21,7 @@ const features = [
   },
   {
     title: "Scalable System",
-    desc: "Whether it's 10 or 10,000 deliveries, Tura's infrastructure scales seamlessly with your business without operational overhead.",
+    desc: "Whether it's 10 or 10,000 deliveries, Tuuraa's infrastructure scales seamlessly with your business without operational overhead.",
     stat: "10×",
     statLabel: "Scale capacity",
     icon: <TbChartBar className="w-8 h-8" />,
@@ -131,12 +131,12 @@ const WhyTura = () => {
           <div className="flex items-center gap-2.5 mb-5">
             <div className="h-px w-8 bg-green-600" />
             <span className="text-[11px] font-semibold tracking-[0.2em] text-green-700 uppercase">
-              Why Tura
+              Why Tuuraa
             </span>
             <div className="h-px w-8 bg-green-400" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
-            Why businesses choose Tura
+            Why businesses choose Tuuraa
           </h2>
           <p className="mt-4 text-slate-500 text-lg max-w-lg leading-relaxed">
             Purpose-built logistics infrastructure for Lagos businesses that

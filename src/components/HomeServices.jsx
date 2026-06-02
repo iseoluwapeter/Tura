@@ -46,18 +46,18 @@ const HomeServices = () => {
     <section className="relative w-full py-24 overflow-hidden bg-green-950 text-white">
       {/* 🌈 Silhouette Gradient Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-950 via-green-900 to-slate-950" />
+        <div className="absolute inset-0 bg-linear-to-br from-green-950 via-green-900 to-slate-950" />
 
         {/* soft glowing blobs */}
-        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-gray-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -left-40 w-125 h-125 bg-gray-500/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-125 h-125 bg-blue-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="max-w-3xl mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            What Tura Offers
+            What Tuuraa Offers
           </h2>
           <p className="text-slate-300 text-lg">
             Built for businesses that need reliable, structured delivery

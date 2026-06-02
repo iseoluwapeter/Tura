@@ -148,9 +148,9 @@ export default function Hero() {
                 animate={mounted ? "visible" : "hidden"}
                 custom={0.18}
               >
-                Tura runs your dispatch operations end-to-end from manifest
-                planning to proof of delivery so your team can focus on
-                growth, not coordination chaos.
+                Tuuraa runs your dispatch operations end-to-end from manifest
+                planning to proof of delivery so your team can focus on growth,
+                not coordination chaos.
               </motion.p>
 
               {/* CTA row */}
@@ -235,7 +235,7 @@ export default function Hero() {
                     className="ml-3 text-[10.5px] text-gray-400"
                     style={{ fontFamily: "'DM Mono', monospace" }}
                   >
-                    tura — live dispatch
+                    tuuraa — live dispatch
                   </span>
                   <span className="ml-auto flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />

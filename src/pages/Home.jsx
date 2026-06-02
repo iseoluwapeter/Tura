@@ -26,7 +26,7 @@ const Home = () => {
         badge="Managed Logistics Infrastructure"
         title="Ready to streamline"
         highlight="your deliveries?"
-        description="Partner with Tura and build a more reliable logistics operation structured, scalable, and built for modern urban commerce."
+        description="Partner with Tuuraa and build a more reliable logistics operation structured, scalable, and built for modern urban commerce."
         primaryLabel="/pricing"
         secondaryLabel="/contact"
         primaryCta="Get Started"

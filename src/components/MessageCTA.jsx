@@ -1,8 +1,10 @@
 import React from "react";
 
 const MessageCTA = () => {
-  const phone = "2348136020880";
-  const message = encodeURIComponent("Hi! I need help with something.");
+  const phone = "2347040234374";
+  const message = encodeURIComponent(
+    "Hi Tuuraa, I’d like to learn more about your managed logistics service and how it can help my business.",
+  );
   const url = `https://wa.me/${phone}?text=${message}`;
 
   return (

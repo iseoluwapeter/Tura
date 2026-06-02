@@ -8,7 +8,7 @@ const steps = [
     number: "01",
     title: "Submit Manifests",
     description:
-      "Businesses log delivery requests through the Tura dashboard specifying pickup, destination, and priority.",
+      "Businesses log delivery requests through the Tuuraa dashboard specifying pickup, destination, and priority.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -27,7 +27,7 @@ const steps = [
   },
   {
     number: "02",
-    title: "Tura Coordinates",
+    title: "Tuuraa Coordinates",
     description:
       "Our platform matches the order to the nearest available rider using intelligent proximity and load balancing.",
     icon: (
@@ -50,7 +50,7 @@ const steps = [
     number: "03",
     title: "Riders Dispatch",
     description:
-      "Verified Tura riders pick up and execute deliveries efficiently, following optimized routes across Lagos.",
+      "Verified Tuuraa riders pick up and execute deliveries efficiently, following optimized routes across Lagos.",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -236,7 +236,7 @@ const HowItWorks = () => {
                   Ready to streamline your deliveries?
                 </p>
                 <p className="text-slate-400 text-xs">
-                  Join hundreds of Lagos businesses on Tura.
+                  Join hundreds of Lagos businesses on Tuuraa.
                 </p>
               </div>
               <Link to="/contact">

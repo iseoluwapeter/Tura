@@ -20,10 +20,10 @@ const Problems = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-10">
-          {/* Without Tura */}
+          {/* Without Tuuraa */}
           <div className="bg-white border border-slate-200 rounded-3xl p-8">
             <h3 className="text-xl font-bold text-slate-900 mb-4">
-              Without Tura
+              Without Tuuraa
             </h3>
             <ul className="space-y-3 text-slate-600">
               <li>• Delayed and inconsistent deliveries</li>
@@ -33,9 +33,9 @@ const Problems = () => {
             </ul>
           </div>
 
-          {/* With Tura */}
+          {/* With Tuuraa */}
           <div className="bg-green-900 text-white rounded-3xl p-8">
-            <h3 className="text-xl font-bold mb-4">With Tura</h3>
+            <h3 className="text-xl font-bold mb-4">With Tuuraa</h3>
             <ul className="space-y-3 text-slate-300">
               <li>• Structured delivery operations</li>
               <li>• Coordinated dispatch management</li>

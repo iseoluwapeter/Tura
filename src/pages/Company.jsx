@@ -32,7 +32,7 @@ const VALUES = [
   {
     icon: "📐",
     title: "Built for Scale",
-    desc: "From small operations to multi-location enterprises, Tura scales with your logistics demands.",
+    desc: "From small operations to multi-location enterprises, Tuuraa scales with your logistics demands.",
   },
 ];
 
@@ -105,7 +105,7 @@ const Company = () => {
         badgeText="Nigeria thrives on businesses."
         title="Businesses keep the economy moving."
         highlightText="We keep them running.."
-        description="Tura is a B2B logistics service built for the businesses that power Nigeria's economy from retail chains and manufacturers to distributors, producers, and growing enterprises that refuse to be held back by unreliable logistics infrastructure."
+        description="Tuuraa is a B2B logistics service built for the businesses that power Nigeria's economy from retail chains and manufacturers to distributors, producers, and growing enterprises that refuse to be held back by unreliable logistics infrastructure."
       />
       {/* ABOUT */}
       <section
@@ -135,7 +135,7 @@ const Company = () => {
               </p>
 
               <p className="text-[clamp(15px,1.2vw,17px)] font-light leading-[1.8] text-[#444]">
-                Tura was built to solve this gap not as a courier service, but
+                Tuuraa was built to solve this gap not as a courier service, but
                 as a logistics operations partner for businesses that need
                 structure, reliability, and scale. We manage the execution layer
                 so businesses can focus on growth, with the confidence that
@@ -156,7 +156,7 @@ const Company = () => {
               <div className="absolute -bottom-8 -right-8 z-10 hidden aspect-3/4 w-[48%] overflow-hidden rounded border-[5px] border-[#FAFAF8] lg:block">
                 <img
                   src={IMAGES.rider}
-                  alt="Tura rider on the move"
+                  alt="Tuuraa rider on the move"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -190,7 +190,7 @@ const Company = () => {
               <h2 className="mb-6  text-[clamp(32px,4vw,56px)] font-bold leading-[1.12] text-[#111]">
                 The meaning
                 <br />
-                behind <em className="italic text-green-600">TURA</em>
+                behind <em className="italic text-green-600">TUURAA</em>
               </h2>
 
               <p className="text-[clamp(15px,1.2vw,17px)] font-light leading-[1.8] text-[#444]">
@@ -211,19 +211,31 @@ const Company = () => {
                     letter: "U",
                     word: "Unwavering",
                     meaning:
-                      "Traffic, weather, high volumes we don't find excuses. We find solutions.",
+                      "Traffic, weather, high volumes — we don't find excuses. We find solutions.",
+                  },
+                  {
+                    letter: "U",
+                    word: "Unbothered",
+                    meaning:
+                      "Calm under pressure. Whatever the day throws at us, your deliveries still go out.",
                   },
                   {
                     letter: "R",
                     word: "Reliable",
                     meaning:
-                      "Consistency is the product. Every delivery on time, every time, no surprises.",
+                      "Consistency is the product. Every delivery, on time, no surprises.",
                   },
                   {
                     letter: "A",
                     word: "Accountable",
                     meaning:
                       "We own outcomes. When something goes wrong, we show up not disappear.",
+                  },
+                  {
+                    letter: "A",
+                    word: "Attentive",
+                    meaning:
+                      "Every client has an account manager who knows their business and stays on top of every drop.",
                   },
                 ].map((item, index) => (
                   <div
@@ -256,7 +268,7 @@ const Company = () => {
       {/* MISSION */}
       <section className="relative overflow-hidden bg-[#111] px-[6vw] py-24">
         <div className="pointer-events-none absolute right-[-4vw] top-1/2 hidden -translate-y-1/2 font-serif text-[28vw] font-bold leading-none text-white/3 lg:block">
-          TURA
+          TUURAA
         </div>
 
         <FadeIn>
@@ -281,7 +293,7 @@ const Company = () => {
               We believe the informal economy of Lagos is not informal by
               choice. It is informal by circumstance. When the right
               infrastructure shows up structured, affordable, accountable these
-              businesses scale. That's what Tura is here to do.
+              businesses scale. That's what Tuuraa is here to do.
             </p>
           </div>
         </FadeIn>
@@ -341,7 +353,7 @@ const Company = () => {
               </h2>
 
               <p className="mb-5 text-[clamp(15px,1.2vw,17px)] font-light leading-[1.8] text-[#444]">
-                Tura is built by people who understand Nigeria’s business
+                Tuuraa is built by people who understand Nigeria’s business
                 environment — its operational complexity, its regional
                 differences, and the coordination it takes to keep commerce
                 moving across cities and markets. Our operations team,
@@ -362,7 +374,7 @@ const Company = () => {
               <div className="group col-span-2 aspect-16/10 overflow-hidden rounded">
                 <img
                   src={IMAGES.team}
-                  alt="Tura team collaborating"
+                  alt="Tuuraa team collaborating"
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 />
               </div>
@@ -391,7 +403,7 @@ const Company = () => {
         badge="Managed Logistics Infrastructure"
         title="Built for businesses"
         highlight="that don’t settle for broken logistics"
-        description="Tura partners with growing and enterprise teams to design and run reliable logistics operations structured, scalable, and built for modern commerce."
+        description="Tuuraa partners with growing and enterprise teams to design and run reliable logistics operations structured, scalable, and built for modern commerce."
         primaryLabel="/contact"
         secondaryLabel="/pricing"
         primaryCta="Talk to Us"

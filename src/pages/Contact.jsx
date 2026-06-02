@@ -35,7 +35,7 @@ const Contact = () => {
     {
       icon: <FiMail />,
       label: "Email",
-      value: "hello@tura.ng",
+      value: "hello@tuuraa.ng",
     },
     {
       icon: <FiMapPin />,
@@ -81,7 +81,7 @@ useEffect(() => {
           <div>
             <p className="text-[#5A534C] font-light leading-relaxed max-w-md mb-12">
               Whether you’re looking to improve your logistics operations,
-              partner with Tura, or make an enquiry. Our team is ready to
+              partner with Tuuraa, or make an enquiry. Our team is ready to
               assist.
             </p>
 
@@ -175,7 +175,7 @@ useEffect(() => {
         title="Let’s support"
         highlight="your operations"
         description="Tell us what you need from daily dispatch to full logistics management and our team will get back to you with a structured plan for your business."
-        primaryLabel="mailto:hello@tura.com"
+        primaryLabel="mailto:hello@tuuraa.com"
         secondaryLabel="/pricing"
         primaryCta="Send a Message"
         secondaryCta="View Pricing"
