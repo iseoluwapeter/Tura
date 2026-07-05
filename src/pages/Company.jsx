@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import HeroSection from "./HeroSection";
 import HomeCTA from "../components/HomeCTA";
 import { handshake, office, Rider, team, Warehouse } from "../assets";
+import PageSEO from "../components/PageSEO";
 
 const IMAGES = {
   hero: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1400&q=80&fit=crop",
@@ -91,6 +92,12 @@ const Company = () => {
 
   return (
     <div className="bg-[#FAFAF8] text-[#111] overflow-x-hidden  relative">
+      <PageSEO
+        title="Company"
+        description="Tuuraa is Lagos's accountability-first managed logistics platform, built to give SMEs reliable, trackable last-mile delivery without the overhead of running their own fleet."
+        canonical="https://tuuraalogistics.com/company"
+      />
+
       {/* Faint background grid */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.022]"

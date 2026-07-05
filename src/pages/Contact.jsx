@@ -7,6 +7,7 @@ import {
   FiSend,
 } from "react-icons/fi";
 import HomeCTA from "../components/HomeCTA";
+import PageSEO from "../components/PageSEO";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -58,6 +59,12 @@ const Contact = () => {
       className="min-h-screen bg-[#F7F5F0] "
       style={{ fontFamily: "Poppins, sans-serif" }}
     >
+      <PageSEO
+        title="Contact"
+        description="Get in touch with Tuuraa to onboard your business for managed logistics in Lagos. Talk to our team about delivery plans tailored to your operations."
+        canonical="https://tuuraalogistics.com/contact"
+      />
+
       <div className="max-w-6xl mx-auto px-6 py-20">
         {/* Header */}
         <div className="mb-16">

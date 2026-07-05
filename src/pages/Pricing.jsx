@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import HeroSection from "./HeroSection";
 import { Link } from "react-router-dom";
+import PageSEO from "../components/PageSEO";
 
 const PACKAGES = [
   {
@@ -113,6 +114,12 @@ const Pricing = () => {
         padding: "72px 24px 96px",
       }}
     >
+      <PageSEO
+        title="Pricing"
+        description="Flexible subscription plans for managed logistics in Lagos — from startup-friendly Spark to enterprise-scale Scale. Transparent pricing built for growing SMEs."
+        canonical="https://tuuraalogistics.com/pricing"
+      />
+
       <div
         style={{
           maxWidth: 1120,

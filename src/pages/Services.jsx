@@ -4,6 +4,7 @@ import TrustStrip from "../components/TrustStrip";
 import ServicesSection from "../components/ServicesSection";
 import HomeCTA from "../components/HomeCTA";
 import FAQ from "../components/FAQ";
+import PageSEO from "../components/PageSEO";
 
 const Services = () => {
   useEffect(() => {
@@ -12,6 +13,12 @@ const Services = () => {
 
   return (
     <div>
+      <PageSEO
+        title="Services"
+        description="Managed last-mile delivery, coordinator-led logistics, and 4PL orchestration for SMEs across Lagos. Explore Tuuraa's service tiers built for recurring business needs."
+        canonical="https://tuuraalogistics.com/services"
+      />
+
       <ServicesHero />
       <TrustStrip />
       <ServicesSection />

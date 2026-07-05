@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Hero from "../components/Hero";
 import Mission from "../components/Mission";
 import Problems from "../components/Problems";
@@ -7,6 +7,7 @@ import HowItWorks from "../components/HowItWorks";
 import WhyTura from "../components/WhyTura";
 import HomeCTA from "../components/HomeCTA";
 import Industries from "../components/Industries";
+import PageSEO from "../components/PageSEO";
 
 const Home = () => {
   useEffect(() => {
@@ -15,6 +16,11 @@ const Home = () => {
 
   return (
     <div>
+      <PageSEO
+        title="Home"
+        description="Tuuraa provides managed, accountability-first delivery logistics for Lagos SMEs. Reliable, subscription-based last-mile delivery across the Lekki-Jakande corridor and beyond."
+        canonical="https://tuuraalogistics.com/"
+      />
       <Hero />
       <Mission />
       <Problems />
