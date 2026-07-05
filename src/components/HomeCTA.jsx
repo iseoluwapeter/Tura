@@ -71,7 +71,7 @@ const HomeCTA = ({
   secondaryCta,
 }) => {
   return (
-    <section className="px-6 md:px-10 py-14">
+    <section className="px-6 md:px-22 py-14">
       <NoiseSVG />
 
       <motion.div

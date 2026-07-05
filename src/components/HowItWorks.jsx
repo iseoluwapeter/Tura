@@ -245,7 +245,7 @@ const HowItWorks = () => {
                   whileTap={{ scale: 0.97 }}
                   className="shrink-0 bg-white hover:bg-green-400 text-green-900 text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
                 >
-                  Get started →
+                  Book a consultation →
                 </motion.button>
               </Link>
             </motion.div>

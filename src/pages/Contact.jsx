@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FiPhone,
   FiMail,
@@ -30,7 +30,7 @@ const Contact = () => {
     {
       icon: <FiPhone />,
       label: "Phone",
-      value: "+234 800 000 0000",
+      value: "+234 704 023 4374",
     },
     {
       icon: <FiMail />,
@@ -45,22 +45,19 @@ const Contact = () => {
     {
       icon: <FiMessageCircle />,
       label: "WhatsApp",
-      value: "+234 800 000 0000",
+      value: "+234 704 023 4374",
     },
   ];
 
-   
-useEffect(() => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}, []);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div
       className="min-h-screen bg-[#F7F5F0] "
       style={{ fontFamily: "Poppins, sans-serif" }}
     >
-
-
       <div className="max-w-6xl mx-auto px-6 py-20">
         {/* Header */}
         <div className="mb-16">
@@ -70,7 +67,7 @@ useEffect(() => {
           </div>
 
           <h1 className=" font-semibold text-4xl sm:text-5xl lg:text-6xl leading-tight text-[#1A1714] max-w-xl">
-            We're always <em className="text-green-600 italic">here</em> to
+            We're always <em className="text-green-800 italic">here</em> to
             help.
           </h1>
         </div>
@@ -148,7 +145,7 @@ useEffect(() => {
 
                 <button
                   onClick={handleSubmit}
-                  className="w-full bg-[#1A1714] text-[#F7F5F0] py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-green-600 transition"
+                  className="w-full bg-green-800 text-[#F7F5F0] py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-green-600 transition"
                 >
                   Send message
                   <FiSend />
@@ -156,7 +153,7 @@ useEffect(() => {
               </>
             ) : (
               <div className="text-center py-10">
-                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[#C27A3A]/10 flex items-center justify-center text-green-600text-2xl">
+                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-green-800 flex items-center justify-center text-green-600text-2xl">
                   ✓
                 </div>
                 <h2 className="font-serif text-2xl mb-2">Message sent!</h2>

@@ -1,11 +1,11 @@
-export {default as TuraLogo} from "./tuuraapng.png"
-export {default as MissionImage} from "./Picture1.png"
-export {default as TuraTruck} from "./turatruck.png"
-export {default as IconWhite} from "./tuuraaicon_white.png"
-export {default as Management} from "./mgt.jpeg"
-export {default as Rider} from "./rider.jpeg"
-export {default as Warehouse} from "./warehouse.jpeg"
-export {default as handshake} from "./handshake.jpeg"
-export {default as team} from "./team.jpeg"
-export {default as office} from "./office.jpeg"
-export {default as meeting} from "./meeting.jpeg"
+export { default as TuraLogo } from "./tuuraapng.png";
+export { default as MissionImage } from "./Picture1.png";
+export { default as TuraTruck } from "./turatruck.png";
+export { default as IconWhite } from "./tuuraaicon_white.png";
+export { default as Management } from "./mgt.jpeg";
+export { default as Rider } from "./rider.jpeg";
+export { default as Warehouse } from "./warehouse.jpeg";
+export { default as handshake } from "./handshake.jpeg";
+export { default as team } from "./team.jpeg";
+export { default as office } from "./office.jpeg";
+export { default as meeting } from "./meeting.jpeg";

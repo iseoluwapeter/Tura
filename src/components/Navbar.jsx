@@ -26,12 +26,12 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="hero-bg-dot absolute inset-0 opacity-40 pointer-events-none" />
+      <div className="hero-bg-dot absolute inset-0  opacity-40 pointer-events-none" />
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`z-30 sticky top-0 flex flex-row items-center justify-between py-3 px-5 md:px-9 transition-all duration-300 ${
+        className={`z-30 sticky top-0 flex flex-row items-center justify-between py-3 px-5 md:px-22  transition-all duration-300 ${
           scrolled ? "bg-white shadow-sm" : "bg-transparent shadow-none"
         }`}
       >
