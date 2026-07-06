@@ -10,6 +10,7 @@ import Pricing from "./pages/Pricing";
 import Company from "./pages/Company";
 import Contact from "./pages/Contact";
 import MessageCTA from "./components/MessageCTA";
+import ConsultationPage from "./pages/Consultationpage";
 
 const App = () => {
   return (
@@ -20,9 +21,10 @@ const App = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/company" element={<Company />} />
-        <Route path="/contact" element={<Contact/>} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/consultation" element={<ConsultationPage />} />
       </Routes>
-      <MessageCTA/>
+      <MessageCTA />
       <Footer />
     </>
   );

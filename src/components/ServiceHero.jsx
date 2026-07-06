@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ServiceHero = () => {
   return (
@@ -52,7 +53,7 @@ const ServiceHero = () => {
             className="flex flex-wrap gap-4"
           >
             <button className="bg-emerald-500 hover:bg-emerald-600 transition-all duration-300 text-white px-7 py-4 rounded-xl font-semibold flex items-center gap-3">
-              Request Delivery
+              <Link to="/consultation">Request a Consultation</Link>
               <FaArrowRight />
             </button>
           </motion.div>

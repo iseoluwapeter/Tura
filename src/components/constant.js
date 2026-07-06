@@ -104,7 +104,6 @@ export const NAV_ITEMS = [
   { label: "Blog", href: "/blog" },
 ];
 
-
 export const faqs = [
   {
     category: "Getting Started",
@@ -162,4 +161,70 @@ export const faqs = [
       },
     ],
   },
+];
+
+export const initialFormData = {
+  fullName: "",
+  businessName: "",
+  role: "",
+  email: "",
+  phone: "",
+  businessType: "",
+  monthlyVolume: "",
+  deliveryZones: "",
+  currentSetup: "",
+  primaryChallenges: [],
+  tierInterest: "",
+  timeline: "",
+  message: "",
+  consent: false,
+};
+
+export const businessTypes = [
+  { value: "ecommerce", label: "E-commerce" },
+  { value: "retail", label: "Retail" },
+  { value: "fmcg_distribution", label: "FMCG / distribution" },
+  { value: "food_beverage", label: "Food and beverage" },
+  { value: "fashion_apparel", label: "Fashion and apparel" },
+  { value: "manufacturing", label: "Manufacturing" },
+  { value: "other", label: "Other" },
+];
+
+export const volumeOptions = [
+  { value: "under_50", label: "Under 50 deliveries" },
+  { value: "50_200", label: "50–200 deliveries" },
+  { value: "200_500", label: "200–500 deliveries" },
+  { value: "500_1500", label: "500–1,500 deliveries" },
+  { value: "over_1500", label: "Over 1,500 deliveries" },
+];
+
+export const setupOptions = [
+  { value: "no_dedicated_setup", label: "No dedicated setup yet" },
+  { value: "in_house_riders", label: "In-house riders" },
+  { value: "third_party_dispatch", label: "Third-party dispatch riders" },
+  { value: "mixed", label: "A mix of the above" },
+];
+
+export const challengeOptions = [
+  { value: "reliability", label: "Reliability of deliveries" },
+  { value: "visibility", label: "Tracking and visibility" },
+  { value: "cost", label: "Cost per delivery" },
+  { value: "accountability", label: "Accountability when things go wrong" },
+  { value: "scaling", label: "Scaling with demand" },
+];
+
+export const tierOptions = [
+  { value: "spark", label: "Spark" },
+  { value: "starter", label: "Starter" },
+  { value: "growth", label: "Growth" },
+  { value: "essential", label: "Essential" },
+  { value: "scale", label: "Scale" },
+  { value: "not_sure", label: "Not sure yet" },
+];
+
+export const timelineOptions = [
+  { value: "immediately", label: "Immediately" },
+  { value: "within_month", label: "Within a month" },
+  { value: "one_to_three_months", label: "1–3 months" },
+  { value: "exploring", label: "Just exploring" },
 ];

@@ -36,7 +36,7 @@ const Contact = () => {
     {
       icon: <FiMail />,
       label: "Email",
-      value: "hello@tuuraa.ng",
+      value: "hello@tuuraalogistics.com",
     },
     {
       icon: <FiMapPin />,

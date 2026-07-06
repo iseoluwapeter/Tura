@@ -411,7 +411,7 @@ const Company = () => {
         title="Built for businesses"
         highlight="that don’t settle for broken logistics"
         description="Tuuraa partners with growing and enterprise teams to design and run reliable logistics operations structured, scalable, and built for modern commerce."
-        primaryLabel="/contact"
+        primaryLabel="/consultation"
         secondaryLabel="/pricing"
         primaryCta="Talk to Us"
         secondaryCta="See Pricing"

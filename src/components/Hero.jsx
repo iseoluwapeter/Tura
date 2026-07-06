@@ -177,11 +177,11 @@ export default function Hero() {
                   </svg>
                 </Link>
                 <Link
-                  to="/contact"
+                  to="/consultation"
                   className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white text-[14px] font-semibold rounded-xl transition-all duration-150 shadow-lg shadow-emerald-700/25"
                 >
-                  <FiPhoneCall className="text-[16px]" />
-                  Contact
+                  {/* <FiPhoneCall className="text-[16px]" /> */}
+                  Book a consultation
                 </Link>
               </motion.div>
 

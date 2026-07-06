@@ -239,7 +239,7 @@ const HowItWorks = () => {
                   Join hundreds of Lagos businesses on Tuuraa.
                 </p>
               </div>
-              <Link to="/contact">
+              <Link to="/consultation">
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}

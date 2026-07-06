@@ -38,7 +38,7 @@ const Navbar = () => {
         {/* Brand logo */}
         <div className="flex items-center space-x-2 text-green-600">
           <NavLink to="/">
-            <img src={TuraLogo} alt="Tura" className="w-20 md:w-40" />
+            <img src={TuraLogo} alt="Tura" className="w-32 md:w-40" />
           </NavLink>
         </div>
 
