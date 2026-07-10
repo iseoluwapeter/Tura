@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   FiPhone,
@@ -22,6 +22,10 @@ import {
 import { supabase } from "../components/supabaseClient";
 
 export default function ConsultationPage() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const [formData, setFormData] = useState(initialFormData);
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -145,8 +149,8 @@ export default function ConsultationPage() {
 
   return (
     <>
-      <section className="bg-[#F5F3EE] py-20 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-[#F5F3EE] py-20 px-6 md:px-20">
+        <div className="">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

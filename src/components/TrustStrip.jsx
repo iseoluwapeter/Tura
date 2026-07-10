@@ -28,7 +28,7 @@ const stats = [
 const TrustStrip = () => {
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="mx-auto px-6 md:px-20 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((item, index) => (
           <motion.div
             key={index}

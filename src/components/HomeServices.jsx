@@ -53,7 +53,7 @@ const HomeServices = () => {
         <div className="absolute bottom-0 right-0 w-125 h-125 bg-blue-500/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative mx-auto px-6 md:px-20">
         {/* Header */}
         <div className="max-w-3xl mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -92,7 +92,7 @@ const HomeServices = () => {
                 </div>
 
                 {/* hover glow */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-tr from-green-500/10 to-transparent" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-linear-to-tr from-green-500/10 to-transparent" />
               </div>
             );
           })}

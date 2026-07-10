@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ServiceHero = () => {
   return (
-    <section className="relative min-h-screen bg-slate-950 overflow-hidden flex items-center">
+    <section className="relative  bg-slate-950 overflow-hidden flex items-center">
       {/* Background image */}
       <img
         src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
@@ -16,7 +16,7 @@ const ServiceHero = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-green-950/90 to-green-900/50" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-1 gap-16 items-center py-24">
+      <div className="relative z-10 mx-auto px-6 md:px-20 grid lg:grid-cols-1 gap-16 items-center py-24">
         <div>
           <motion.span
             initial={{ opacity: 0, y: 20 }}

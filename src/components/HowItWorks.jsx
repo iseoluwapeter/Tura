@@ -176,7 +176,7 @@ const HowItWorks = () => {
       {/* Ambient glow */}
       <div className="pointer-events-none absolute -top-40 -right-40 w-150 h-150 rounded-full bg-indigo-50 blur-[100px] opacity-60" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative mx-auto px-6 md:px-22">
         {/* Header */}
         <motion.div
           variants={fadeUp}

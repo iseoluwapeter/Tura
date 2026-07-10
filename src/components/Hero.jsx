@@ -76,7 +76,7 @@ export default function Hero() {
       `}</style>
 
       <section
-        className="relative min-h-[calc(100vh-64px)] flex items-center overflow-hidden bg-white"
+        className="relative flex items-center overflow-hidden bg-white"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
         {/* Dot-grid background */}
@@ -100,8 +100,8 @@ export default function Hero() {
           }}
         />
 
-        <div className="relative max-w-350 mx-auto px-6 lg:px-10 w-full py-20 lg:py-0">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-64px)]">
+        <div className="relative mx-auto px-6 md:px-20 w-full py-5 mt-15 lg:py-0">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ">
             {/* ── LEFT: Copy ─────────────────────────────────────────────── */}
             <div className="flex flex-col justify-center">
               {/* Eyebrow pill */}

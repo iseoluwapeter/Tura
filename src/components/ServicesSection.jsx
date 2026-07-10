@@ -28,15 +28,14 @@ const services = [
     icon: <FaUsers />,
     title: "Dedicated Partnerships",
     text: "Structured logistics support for growing businesses.",
-    image:
-     Management,
+    image: Management,
   },
 ];
 
 const ServicesSection = () => {
   return (
     <section className="py-28 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="px-6 md:px-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="w-full bg-slate-900 text-slate-300 py-16 ">
-      <div className="max-w-8xl mx-auto px-6 lg:px-22 grid md:grid-cols-4 gap-10">
+      <div className="px-6 md:px-20 grid md:grid-cols-4 gap-10">
         <div>
           <img src={IconWhite} alt="Tura" className="w-35" />
           <p className="text-slate-400 mt-4">
@@ -40,14 +40,21 @@ const Footer = () => {
         <div>
           <h4 className="text-white font-semibold mb-4">Contact</h4>
           <ul className="space-y-2">
-            <li>Email: hello@tuuraalogistics.com</li>
-            <li>Phone: +234 704 023 4374</li>
+            <li>
+              Email:<br></br>{" "}
+              <span className="md:text-sm lg:text-[17px]">
+                hello@tuuraalogistics.com
+              </span>
+            </li>
+            <li>
+              Phone: <br></br>+234 704 023 4374
+            </li>
           </ul>
         </div>
       </div>
 
       <div className="text-center text-slate-500 mt-12 text-sm">
-        © {new Date().getFullYear()} Tura. All rights reserved.
+        © {new Date().getFullYear()} Tuuraa. All rights reserved.
       </div>
     </footer>
   );

@@ -67,9 +67,9 @@ const Mission = () => {
       />
 
       {/* Top-left ambient glow */}
-      <div className="pointer-events-none absolute -top-24 -left-32 w-[500px] h-[400px] rounded-full bg-emerald-50 blur-[120px] opacity-80" />
+      <div className="pointer-events-none absolute -top-24 -left-32 w-125 h-100 rounded-full bg-emerald-50 blur-[120px] opacity-80" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative mx-auto px-6 md:px-20">
         {/* ── Section Header ── */}
         <div ref={leftRef} className="mb-20">
           <motion.div
@@ -113,9 +113,9 @@ const Mission = () => {
               animate={leftInView ? "visible" : "hidden"}
               className="text-lg text-slate-500 leading-relaxed md:pt-4"
             >
-              From ecommerce brands and retailers to distributors and SMEs, Tuuraa
-              coordinates deliveries efficiently across Lagos with structured
-              dispatch operations and dependable fulfilment support.
+              From ecommerce brands and retailers to distributors and SMEs,
+              Tuuraa coordinates deliveries efficiently across Lagos with
+              structured dispatch operations and dependable fulfilment support.
             </motion.p>
           </div>
           {/* end grid */}
@@ -179,9 +179,9 @@ const Mission = () => {
 
                 <p className="text-slate-400 leading-relaxed text-[15px]">
                   Too many businesses lose customers because deliveries are
-                  delayed, uncoordinated, or unreliable. Tuuraa is building a more
-                  dependable logistics experience designed for the realities of
-                  modern commerce in Lagos.
+                  delayed, uncoordinated, or unreliable. Tuuraa is building a
+                  more dependable logistics experience designed for the
+                  realities of modern commerce in Lagos.
                 </p>
               </div>
             </motion.div>
@@ -267,4 +267,3 @@ const Mission = () => {
 };
 
 export default Mission;
-

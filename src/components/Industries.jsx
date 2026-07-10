@@ -152,7 +152,7 @@ const Industries = () => {
       {/* Faint horizontal rule across top */}
       <div className="absolute top-0 inset-x-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="relative mx-auto px-6 md:px-20">
         {/* ── Header ── */}
         <div ref={headerRef} className="mb-20">
           <motion.div
@@ -214,8 +214,6 @@ const Industries = () => {
           {industries.map((industry, i) => (
             <IndustryCard key={industry.title} industry={industry} index={i} />
           ))}
-
-       
         </motion.div>
       </div>
 

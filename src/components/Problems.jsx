@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const Problems = () => {
   return (
     <section className="w-full py-24 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="mx-auto px-6 md:px-22">
         <div className="max-w-3xl mb-16">
           <p className="text-green-600 font-semibold uppercase tracking-wide mb-4">
             The Problem
@@ -47,6 +47,6 @@ const Problems = () => {
       </div>
     </section>
   );
-}
+};
 
-export default Problems
+export default Problems;

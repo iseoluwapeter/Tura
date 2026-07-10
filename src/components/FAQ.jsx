@@ -97,7 +97,7 @@ const FAQ = () => {
     <section className="relative w-full py-28 bg-white overflow-hidden">
       <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-175 h-75 rounded-full bg-green-50 blur-[100px] opacity-80" />
 
-      <div className="relative max-w-4xl mx-auto px-6 lg:px-12">
+      <div className="relative max-w-4xl mx-auto px-6 md:px-20">
         {/* Header */}
         <div ref={headerRef} className="mb-14">
           <motion.div

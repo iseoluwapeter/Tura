@@ -11,7 +11,7 @@ const PACKAGES = [
     highlight: false,
     badge: null,
     cta: "Get started",
-    href: "/contact",
+    href: "/consultation",
     headerColor: "from-stone-700 to-stone-500",
     features: [
       "15 deliveries usable across any 45 consecutive days",
@@ -28,7 +28,7 @@ const PACKAGES = [
     highlight: false,
     badge: null,
     cta: "Talk to operations",
-    href: "/contact",
+    href: "/consultations",
     headerColor: "from-cyan-900 to-cyan-700",
     features: [
       "Up to 100 deliveries per calendar month",
@@ -86,7 +86,7 @@ const PACKAGES = [
     highlight: false,
     badge: "",
     cta: "Get a quote",
-    href: "/contact",
+    href: "/consultation",
     headerColor: "from-gray-950 via-gray-800 to-gray-950",
     features: [
       "Custom fleet operations from ₦950,000 per month",
@@ -116,16 +116,11 @@ const Pricing = () => {
     >
       <PageSEO
         title="Pricing"
-        description="Flexible subscription plans for managed logistics in Lagos — from startup-friendly Spark to enterprise-scale Scale. Transparent pricing built for growing SMEs."
+        description="Flexible subscription plans for managed logistics, from startup-friendly Spark to enterprise-scale Scale. Transparent pricing built for growing SMEs."
         canonical="https://tuuraalogistics.com/pricing"
       />
 
-      <div
-        style={{
-          maxWidth: 1120,
-          margin: "0 auto",
-        }}
-      >
+      <div className="md:px-20">
         {/* Hero */}
         <HeroSection
           badgeText="Simple, transparent pricing"
@@ -134,25 +129,25 @@ const Pricing = () => {
           description="Scale your deliveries with predictable pricing and real-time tracking."
         />
 
-        {/* Pricing cards */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start max-w-5xl mx-auto px-4">
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 items-stretch px-0 md:px-6">
           {PACKAGES.map((pkg, i) => (
             <div
               key={pkg.id}
               className={`
-        relative rounded-3xl overflow-hidden
-        ${i === 3 ? "sm:col-start-1 lg:col-start-1 lg:translate-x-1/2" : ""}
-        ${i === 4 ? "sm:col-start-2 lg:col-start-2 lg:translate-x-1/2" : ""}
-        ${
-          pkg.highlight
-            ? "bg-green-50 border-2 border-emerald-600 shadow-[0_10px_30px_rgba(5,150,105,0.12)]"
-            : "bg-white border border-gray-200 shadow-sm"
-        }
-      `}
+                relative rounded-3xl overflow-hidden flex flex-col
+                lg:col-span-2
+                ${i === 3 ? "lg:col-start-2" : ""}
+                ${i === 4 ? "lg:col-start-4" : ""}
+                ${
+                  pkg.highlight
+                    ? "bg-green-50 border-2 border-emerald-600 shadow-[0_10px_30px_rgba(5,150,105,0.12)]"
+                    : "bg-white border border-gray-200 shadow-sm"
+                }
+              `}
             >
               {/* Plan name header band */}
               <div
-                className={`px-8 pt-8 pb-5 bg-linear-to-r ${pkg.headerColor} relative overflow-hidden`}
+                className={`px-6 sm:px-8 pt-8 pb-5 bg-linear-to-r ${pkg.headerColor} relative overflow-hidden`}
               >
                 <div className="absolute inset-0 opacity-20 blur-2xl bg-white" />
                 {pkg.badge && (
@@ -168,16 +163,14 @@ const Pricing = () => {
                 </h3>
               </div>
 
-              {/* Card body */}
-              <div className="px-8 pt-5 pb-6">
+              <div className="px-6 sm:px-8 pt-5 pb-6 flex flex-col flex-1">
                 {/* Persona */}
                 <p className="text-[13px] leading-relaxed text-gray-500 mb-5">
                   {pkg.persona}
                 </p>
 
-                {/* Features */}
                 <div
-                  className={`border-t pt-4 mb-6 ${
+                  className={`border-t pt-4 mb-6 flex-1 ${
                     pkg.highlight ? "border-green-200" : "border-gray-100"
                   }`}
                 >
@@ -196,10 +189,9 @@ const Pricing = () => {
                   ))}
                 </div>
 
-                {/* CTA */}
                 <Link
                   to={pkg.href}
-                  className={`block text-center no-underline px-4 py-3 rounded-2xl text-sm font-semibold transition-opacity hover:opacity-90 ${
+                  className={`block text-center no-underline px-4 py-3 rounded-2xl text-sm font-semibold transition-opacity hover:opacity-90 mt-auto ${
                     pkg.highlight
                       ? "bg-emerald-600 text-white shadow-[0_6px_18px_rgba(5,150,105,0.22)]"
                       : "bg-transparent text-emerald-600 border border-emerald-600"
