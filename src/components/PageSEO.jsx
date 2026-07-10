@@ -1,9 +1,9 @@
 import { Helmet } from "react-helmet-async";
 
 const PageSEO = ({ title, description, canonical, noIndex = false }) => {
-  const siteName = "Tuuraa";
+  const siteName = "Tuuraa Logistics";
   const defaultDescription =
-    "Managed last-mile logistics for Lagos SMEs — accountability-first, subscription-based delivery.";
+    "Managed last-mile logistics for SMEs, accountability-first, subscription-based delivery.";
 
   return (
     <Helmet>
